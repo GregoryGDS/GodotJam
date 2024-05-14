@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://noawj26u85mq"]
+
+[ext_resource type="Texture2D" uid="uid://dm1oe0vfhvtbt" path="res://tpe_wrong.png" id="1_piul6"]
+
+[node name="MenuFin" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(406, 217)
+scale = Vector2(7.62264, 4.97126)
+texture = ExtResource("1_piul6")

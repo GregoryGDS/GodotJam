@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkkb3fnvxur4u"]
+
+[ext_resource type="Script" path="res://scripts/LevelManager.gd" id="1_f12ry"]
+[ext_resource type="PackedScene" uid="uid://blcvhra8sgwej" path="res://sample.tscn" id="1_n5pfr"]
+[ext_resource type="PackedScene" uid="uid://db6crh86yecq1" path="res://scenes_prefabs/GenerateEraser.tscn" id="2_2n85x"]
+[ext_resource type="PackedScene" uid="uid://noawj26u85mq" path="res://scenes_prefabs/menu_fin_test.tscn" id="2_4lylk"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_k7n81"]
+viewport_path = NodePath("CanvasLayer- génération du mask/SubViewportContainer/SubViewport - texture substrat dynamique")
+
+[node name="Manager" type="Node2D"]
+script = ExtResource("1_f12ry")
+cheminDos = "res://scenes_prefabs/Levels"
+
+[node name="MenuFin" parent="." instance=ExtResource("2_4lylk")]
+
+[node name="TextureRectMask" type="TextureRect" parent="."]
+clip_children = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("ViewportTexture_k7n81")
+
+[node name="Sample - niveau à cacher" parent="TextureRectMask" instance=ExtResource("1_n5pfr")]
+
+[node name="CanvasLayer- génération du mask" type="CanvasLayer" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer- génération du mask"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1878.0
+offset_top = 759.0
+offset_right = -1878.0
+offset_bottom = 759.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport - texture substrat dynamique" type="SubViewport" parent="CanvasLayer- génération du mask/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="scene - TrailEraser" parent="CanvasLayer- génération du mask/SubViewportContainer/SubViewport - texture substrat dynamique" instance=ExtResource("2_2n85x")]

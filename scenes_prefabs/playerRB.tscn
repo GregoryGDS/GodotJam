@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://crvuc1t52xixg"]
+
+[ext_resource type="Texture2D" uid="uid://ctc6mlkpbecad" path="res://addons/kenney pixel platformer/characters/character_0021.png" id="1_6f0o2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_it4kd"]
+radius = 8.0
+
+[node name="RigidBody2D" type="RigidBody2D"]
+input_pickable = true
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_it4kd")
+debug_color = Color(0.396001, 0.680469, 0.900215, 0.611765)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("1_6f0o2")
