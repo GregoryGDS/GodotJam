@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://biu2gaajdla4o"]
+[gd_scene load_steps=15 format=3 uid="uid://biu2gaajdla4o"]
 
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_h605g"]
 [ext_resource type="Texture2D" uid="uid://yjpmudentwki" path="res://Import/stage word.png" id="2_owcg3"]
@@ -9,6 +9,7 @@
 
 [sub_resource type="Animation" id="Animation_bclna"]
 resource_name = "heart bouncing"
+length = 1.5
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -17,10 +18,10 @@ tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(0.818182, 0.818182)]
+"values": [Vector2(1.50732, 1.50732), Vector2(1.74168, 1.74168)]
 }
 
 [sub_resource type="Animation" id="Animation_cdqc5"]
@@ -35,66 +36,147 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(1.50732, 1.50732)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Heart:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.85066, 1.85066)]
 }
 
 [sub_resource type="Animation" id="Animation_garmn"]
 resource_name = "heart bouncing_2"
 loop_mode = 2
 
+[sub_resource type="Animation" id="Animation_b3hfv"]
+resource_name = "heart_contour"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Heart:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.85066, 1.85066), Vector2(2.06037, 2.06037)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lvccw"]
 _data = {
 "RESET": SubResource("Animation_cdqc5"),
 "heart bouncing": SubResource("Animation_bclna"),
-"heart bouncing_2": SubResource("Animation_garmn")
+"heart bouncing_2": SubResource("Animation_garmn"),
+"heart_contour": SubResource("Animation_b3hfv")
+}
+
+[sub_resource type="Animation" id="Animation_ldtkw"]
+resource_name = "heart-contour"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.85066, 1.85066), Vector2(1.90234, 1.90234)]
+}
+
+[sub_resource type="Animation" id="Animation_hewrd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.85066, 1.85066)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2xvg5"]
+_data = {
+"RESET": SubResource("Animation_hewrd"),
+"heart-contour": SubResource("Animation_ldtkw")
 }
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(282.585, 179.5)
-scale = Vector2(1.43952, 1.43952)
+position = Vector2(572.766, 363)
+scale = Vector2(2.89516, 2.89516)
 texture = ExtResource("1_h605g")
 
 [node name="StageWord" type="Sprite2D" parent="."]
-position = Vector2(213, 105)
-scale = Vector2(1.24157, 1.24157)
+position = Vector2(379, 193)
+scale = Vector2(2.07022, 2.07022)
 texture = ExtResource("2_owcg3")
 
 [node name="Heart1" type="Sprite2D" parent="."]
-position = Vector2(166, 271)
+position = Vector2(350, 466)
 rotation = 0.350811
+scale = Vector2(1.50732, 1.50732)
 texture = ExtResource("3_g5q62")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Heart1"]
 libraries = {
 "": SubResource("AnimationLibrary_lvccw")
 }
+autoplay = "heart bouncing"
 speed_scale = 0.53
 
 [node name="Heart2" type="Sprite2D" parent="."]
-position = Vector2(279, 268)
+position = Vector2(578, 477)
+scale = Vector2(1.50732, 1.50732)
 texture = ExtResource("4_isr0j")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Heart2"]
 libraries = {
 "": SubResource("AnimationLibrary_lvccw")
 }
+autoplay = "heart bouncing"
 speed_scale = 0.53
 
 [node name="Heart3" type="Sprite2D" parent="."]
-position = Vector2(401, 272)
+position = Vector2(819, 486)
+scale = Vector2(1.50732, 1.50732)
 texture = ExtResource("5_ql7xj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Heart3"]
 libraries = {
 "": SubResource("AnimationLibrary_lvccw")
 }
+autoplay = "heart bouncing"
 speed_scale = 0.53
 
 [node name="Heart" type="Sprite2D" parent="."]
-position = Vector2(285, 274)
+position = Vector2(597, 480)
+scale = Vector2(1.85066, 1.85066)
 texture = ExtResource("6_4tchq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Heart"]
+libraries = {
+"": SubResource("AnimationLibrary_2xvg5")
+}
+autoplay = "heart-contour"
+speed_scale = 0.55
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(573, 328)
