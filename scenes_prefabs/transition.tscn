@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=3 uid="uid://biu2gaajdla4o"]
+
+[ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_h605g"]
+[ext_resource type="Texture2D" uid="uid://yjpmudentwki" path="res://Import/stage word.png" id="2_owcg3"]
+[ext_resource type="Texture2D" uid="uid://cfjjxkda6koki" path="res://Import/heart1.png" id="3_g5q62"]
+[ext_resource type="Texture2D" uid="uid://djdwsb2hchpwd" path="res://Import/heart 2.png" id="4_isr0j"]
+[ext_resource type="Texture2D" uid="uid://c4avtm2btvpo7" path="res://Import/heart 3.png" id="5_ql7xj"]
+[ext_resource type="Texture2D" uid="uid://74sd76iiejwn" path="res://Import/heart.png" id="6_4tchq"]
+
+[sub_resource type="Animation" id="Animation_bclna"]
+resource_name = "heart bouncing"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.818182, 0.818182)]
+}
+
+[sub_resource type="Animation" id="Animation_cdqc5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_garmn"]
+resource_name = "heart bouncing_2"
+loop_mode = 2
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lvccw"]
+_data = {
+"RESET": SubResource("Animation_cdqc5"),
+"heart bouncing": SubResource("Animation_bclna"),
+"heart bouncing_2": SubResource("Animation_garmn")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(282.585, 179.5)
+scale = Vector2(1.43952, 1.43952)
+texture = ExtResource("1_h605g")
+
+[node name="StageWord" type="Sprite2D" parent="."]
+position = Vector2(213, 105)
+scale = Vector2(1.24157, 1.24157)
+texture = ExtResource("2_owcg3")
+
+[node name="Heart1" type="Sprite2D" parent="."]
+position = Vector2(166, 271)
+rotation = 0.350811
+texture = ExtResource("3_g5q62")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Heart1"]
+libraries = {
+"": SubResource("AnimationLibrary_lvccw")
+}
+speed_scale = 0.53
+
+[node name="Heart2" type="Sprite2D" parent="."]
+position = Vector2(279, 268)
+texture = ExtResource("4_isr0j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Heart2"]
+libraries = {
+"": SubResource("AnimationLibrary_lvccw")
+}
+speed_scale = 0.53
+
+[node name="Heart3" type="Sprite2D" parent="."]
+position = Vector2(401, 272)
+texture = ExtResource("5_ql7xj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Heart3"]
+libraries = {
+"": SubResource("AnimationLibrary_lvccw")
+}
+speed_scale = 0.53
+
+[node name="Heart" type="Sprite2D" parent="."]
+position = Vector2(285, 274)
+texture = ExtResource("6_4tchq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(573, 328)
+scale = Vector2(1.04, 1)
