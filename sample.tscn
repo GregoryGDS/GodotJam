@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://blcvhra8sgwej"]
+[gd_scene load_steps=28 format=3 uid="uid://blcvhra8sgwej"]
 
 [ext_resource type="Script" path="res://scripts/sample.gd" id="1_0twut"]
 [ext_resource type="TileSet" uid="uid://cbrm6tgdqdd1f" path="res://addons/kenney pixel platformer/tile sets/background_tile_set.tres" id="1_ouqog"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://trefjxclog0d" path="res://addons/kenney pixel platformer/characters/character_0019.png" id="7_0vqc3"]
 [ext_resource type="Texture2D" uid="uid://7x1ooweufd2l" path="res://addons/kenney pixel platformer/characters/character_0013.png" id="8_ioadj"]
 [ext_resource type="Texture2D" uid="uid://cxhf8yvwugi4a" path="res://addons/kenney pixel platformer/characters/character_0025.png" id="9_wnpg2"]
-[ext_resource type="Texture2D" uid="uid://ctc6mlkpbecad" path="res://addons/kenney pixel platformer/characters/character_0021.png" id="10_34yd3"]
 [ext_resource type="Texture2D" uid="uid://k1uq5u8gu702" path="res://addons/kenney pixel platformer/characters/character_0011.png" id="11_ewdvn"]
 [ext_resource type="PackedScene" uid="uid://crvuc1t52xixg" path="res://scenes_prefabs/playerRB.tscn" id="12_ad8ub"]
 [ext_resource type="Texture2D" uid="uid://cs6f8nqyotl2f" path="res://addons/kenney pixel platformer/characters/character_0012.png" id="12_hxex8"]
@@ -174,10 +173,6 @@ texture = ExtResource("8_ioadj")
 [node name="Character0028" type="Sprite2D" parent="StaticCharacters"]
 position = Vector2(904, 16)
 texture = ExtResource("9_wnpg2")
-
-[node name="Character0021" type="Sprite2D" parent="StaticCharacters"]
-position = Vector2(829, 168)
-texture = ExtResource("10_34yd3")
 
 [node name="Character0011" type="Sprite2D" parent="StaticCharacters"]
 position = Vector2(768, 166)
