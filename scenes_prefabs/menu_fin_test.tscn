@@ -1,10 +1,123 @@
-[gd_scene load_steps=2 format=3 uid="uid://noawj26u85mq"]
+[gd_scene load_steps=12 format=3 uid="uid://noawj26u85mq"]
 
-[ext_resource type="Texture2D" uid="uid://dm1oe0vfhvtbt" path="res://tpe_wrong.png" id="1_piul6"]
+[ext_resource type="Texture2D" uid="uid://lv3bgfh2uxev" path="res://Import/couverture book.png" id="1_jlhl4"]
+[ext_resource type="Texture2D" uid="uid://bcfdgfa43nvgh" path="res://Import/charlie's.png" id="2_j3klv"]
+[ext_resource type="Texture2D" uid="uid://ds3r2makhorcl" path="res://Import/dino.png" id="3_tybh3"]
+[ext_resource type="Texture2D" uid="uid://cjq06d64xb7vh" path="res://Import/sun.png" id="4_msf81"]
+[ext_resource type="Texture2D" uid="uid://dhdckv66goxfv" path="res://Import/word gae over.png" id="5_610nd"]
+
+[sub_resource type="Animation" id="Animation_5p55p"]
+resource_name = "dino"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-5.65313e-05, -5.65313e-05, -0.1309, -0.1309]
+}
+
+[sub_resource type="Animation" id="Animation_qdhne"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-5.65313e-05]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f0lg2"]
+_data = {
+"RESET": SubResource("Animation_qdhne"),
+"dino": SubResource("Animation_5p55p")
+}
+
+[sub_resource type="Animation" id="Animation_4c7oe"]
+resource_name = "SUN"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.774197, 0.774197]
+}
+
+[sub_resource type="Animation" id="Animation_x6ne7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4cvkr"]
+_data = {
+"RESET": SubResource("Animation_x6ne7"),
+"SUN": SubResource("Animation_4c7oe")
+}
 
 [node name="MenuFin" type="Node2D"]
+position = Vector2(-11, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(406, 217)
-scale = Vector2(7.62264, 4.97126)
-texture = ExtResource("1_piul6")
+position = Vector2(582.75, 322)
+scale = Vector2(2.89241, 2.59677)
+texture = ExtResource("1_jlhl4")
+
+[node name="Charlie\'s" type="Sprite2D" parent="."]
+position = Vector2(951, 602)
+texture = ExtResource("2_j3klv")
+
+[node name="Dino" type="Sprite2D" parent="."]
+position = Vector2(277, 480)
+rotation = -5.65313e-05
+scale = Vector2(0.210317, 0.178508)
+texture = ExtResource("3_tybh3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Dino"]
+libraries = {
+"": SubResource("AnimationLibrary_f0lg2")
+}
+speed_scale = -0.775
+
+[node name="Sun" type="Sprite2D" parent="."]
+position = Vector2(1051, 109)
+scale = Vector2(0.0604426, 0.0604426)
+texture = ExtResource("4_msf81")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sun"]
+libraries = {
+"": SubResource("AnimationLibrary_4cvkr")
+}
+
+[node name="WordGaeOver" type="Sprite2D" parent="."]
+position = Vector2(637, 266)
+rotation = -0.0535984
+scale = Vector2(2.65132, 2.65132)
+texture = ExtResource("5_610nd")
