@@ -203,7 +203,7 @@ theme_override_font_sizes/font_size = 45
 text = "hello"
 
 [node name="RigidBody2D3" parent="." instance=ExtResource("12_ad8ub")]
-position = Vector2(374, 77)
+position = Vector2(375, 81)
 collision_layer = 2
 gravity_scale = 1.0
 script = ExtResource("14_ws8ki")
