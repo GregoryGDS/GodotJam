@@ -150,7 +150,7 @@ _data = {
 "RESET": SubResource("Animation_sfrjt")
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Lvl01_Echelle" type="Node2D"]
 scale = Vector2(0.122999, 0.122999)
 
 [node name="Page" type="Sprite2D" parent="."]
@@ -218,6 +218,7 @@ texture = ExtResource("9_ytcnj")
 libraries = {
 "": SubResource("AnimationLibrary_lckiv")
 }
+autoplay = "Leaf"
 
 [node name="Feuille2" type="Sprite2D" parent="."]
 position = Vector2(5089.47, 910.575)
@@ -229,3 +230,4 @@ texture = ExtResource("9_ytcnj")
 libraries = {
 "": SubResource("AnimationLibrary_8ka2w")
 }
+autoplay = "Leaf2"

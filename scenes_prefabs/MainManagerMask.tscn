@@ -24,7 +24,7 @@ offset_right = 1152.0
 offset_bottom = 648.0
 texture = SubResource("ViewportTexture_k7n81")
 
-[node name="Node2D" parent="TextureRectMask" instance=ExtResource("3_khka3")]
+[node name="01" parent="TextureRectMask" instance=ExtResource("3_khka3")]
 
 [node name="Sample - niveau à cacher" parent="TextureRectMask" instance=ExtResource("1_n5pfr")]
 visible = false
