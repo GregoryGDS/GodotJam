@@ -6,6 +6,21 @@
 [ext_resource type="Texture2D" uid="uid://cjq06d64xb7vh" path="res://Import/sun.png" id="4_msf81"]
 [ext_resource type="Texture2D" uid="uid://dhdckv66goxfv" path="res://Import/word gae over.png" id="5_610nd"]
 
+[sub_resource type="Animation" id="Animation_qdhne"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-5.65313e-05]
+}
+
 [sub_resource type="Animation" id="Animation_5p55p"]
 resource_name = "dino"
 length = 2.0
@@ -23,7 +38,13 @@ tracks/0/keys = {
 "values": [-5.65313e-05, -5.65313e-05, -0.1309, -0.1309]
 }
 
-[sub_resource type="Animation" id="Animation_qdhne"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f0lg2"]
+_data = {
+"RESET": SubResource("Animation_qdhne"),
+"dino": SubResource("Animation_5p55p")
+}
+
+[sub_resource type="Animation" id="Animation_x6ne7"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -35,13 +56,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-5.65313e-05]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_f0lg2"]
-_data = {
-"RESET": SubResource("Animation_qdhne"),
-"dino": SubResource("Animation_5p55p")
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_4c7oe"]
@@ -59,21 +74,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 0.774197, 0.774197]
-}
-
-[sub_resource type="Animation" id="Animation_x6ne7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4cvkr"]
