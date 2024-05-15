@@ -1,7 +1,7 @@
-extends Area2D
-@onready var area_2d___fin_lv = $"Area2D - fin LV"
+extends Node2D
 
-#@onready var label = %Label
+@onready var label = $Label
+var arrayHeart: Array = [$Heart1, $Heart2, $Heart3]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,9 +12,5 @@ func _ready():
 func _process(delta):
 	pass
 
-
-
-
-func _on_area_entered(area):
-	#label.text = "win";
-	print("ok dans area fin lv");
+func setText(name):
+	label = name

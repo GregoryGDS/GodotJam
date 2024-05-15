@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://db6crh86yecq1"]
+[gd_scene load_steps=9 format=3 uid="uid://db6crh86yecq1"]
 
+[ext_resource type="PackedScene" uid="uid://b1uv0obf6ba27" path="res://scenes_prefabs/LD/anim_line_erase.tscn" id="1_3b84l"]
+[ext_resource type="Texture2D" uid="uid://ck5cuwvyw2bba" path="res://Import/eraser.png" id="2_152dv"]
 [ext_resource type="Script" path="res://scenes_prefabs/GenerateLineErase.gd" id="2_viuw5"]
-[ext_resource type="Texture2D" uid="uid://bg778peeabi7h" path="res://addons/kenney pixel platformer/characters/character_0000.png" id="2_xxtxg"]
+[ext_resource type="Texture2D" uid="uid://k1uq5u8gu702" path="res://addons/kenney pixel platformer/characters/character_0011.png" id="3_5frb3"]
 
-[sub_resource type="Animation" id="Animation_lpt0i"]
-resource_name = "MoveLine"
-length = 5.0
+[sub_resource type="Animation" id="Animation_t3pr0"]
+resource_name = "moveErase"
+length = 8.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -13,13 +15,13 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(69.5, 69.5), Vector2(183, 372), Vector2(701, 205), Vector2(1185, 697), Vector2(124, -132), Vector2(254, 773)]
+"values": [Vector2(219, -288), Vector2(-158, 676), Vector2(520, -151), Vector2(152, 816), Vector2(873, -201), Vector2(567, 783), Vector2(1273, -107), Vector2(976, 807)]
 }
 
-[sub_resource type="Animation" id="Animation_hpvaw"]
+[sub_resource type="Animation" id="Animation_uy5v8"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -31,13 +33,13 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(69.5, 69.5)]
+"values": [Vector2(360, -291)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_gct0h"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v5whl"]
 _data = {
-"MoveLine": SubResource("Animation_lpt0i"),
-"RESET": SubResource("Animation_hpvaw")
+"RESET": SubResource("Animation_uy5v8"),
+"moveErase": SubResource("Animation_t3pr0")
 }
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rr666"]
@@ -46,27 +48,42 @@ blend_mode = 2
 [node name="trail eraser" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -1076.0
-offset_top = -472.0
-offset_right = 1151.0
-offset_bottom = 821.0
+offset_left = -50.0
+offset_top = -48.0
+offset_right = 1210.0
+offset_bottom = 817.0
+
+[node name="animLineErase" parent="." instance=ExtResource("1_3b84l")]
+visible = false
 
 [node name="BaseLine" type="Sprite2D" parent="."]
-position = Vector2(69.5, 69.5)
-scale = Vector2(6.79167, 6.79167)
-texture = ExtResource("2_xxtxg")
+visible = false
+position = Vector2(360, -291)
+scale = Vector2(0.198854, 0.198854)
+texture = ExtResource("2_152dv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BaseLine"]
 libraries = {
-"": SubResource("AnimationLibrary_gct0h")
+"": SubResource("AnimationLibrary_v5whl")
 }
-autoplay = "MoveLine"
+autoplay = "moveErase"
+speed_scale = 2.0
 
-[node name="Line2D" type="Line2D" parent="BaseLine"]
+[node name="Line2D" type="Line2D" parent="." node_paths=PackedStringArray("baseline")]
 material = SubResource("CanvasItemMaterial_rr666")
-scale = Vector2(0.0837593, 0.127541)
-width = 50.0
+position = Vector2(370, 193)
+scale = Vector2(0.568866, 0.866216)
+points = PackedVector2Array(22.8525, -573.76)
+width = 500.0
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 script = ExtResource("2_viuw5")
+baseline = NodePath("../animLineErase")
+
+[node name="Sprite2D" type="Sprite2D" parent="Line2D"]
+visible = false
+scale = Vector2(11.939, 7.84062)
+texture = ExtResource("3_5frb3")
+
+[node name="animLineErase2" parent="." instance=ExtResource("1_3b84l")]

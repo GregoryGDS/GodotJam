@@ -1,24 +1,39 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkkb3fnvxur4u"]
+[gd_scene load_steps=14 format=3 uid="uid://dkkb3fnvxur4u"]
 
 [ext_resource type="Script" path="res://scripts/LevelManager.gd" id="1_f12ry"]
 [ext_resource type="PackedScene" uid="uid://blcvhra8sgwej" path="res://sample.tscn" id="1_n5pfr"]
 [ext_resource type="PackedScene" uid="uid://db6crh86yecq1" path="res://scenes_prefabs/GenerateEraser.tscn" id="2_2n85x"]
 [ext_resource type="PackedScene" uid="uid://noawj26u85mq" path="res://scenes_prefabs/menu_fin_test.tscn" id="2_4lylk"]
-[ext_resource type="PackedScene" uid="uid://o77j6cwl7spe" path="res://scenes_prefabs/transition.tscn" id="3_e5yox"]
 [ext_resource type="PackedScene" uid="uid://r7tujup2txd3" path="res://scenes_prefabs/Levels/01.tscn" id="3_khka3"]
-[ext_resource type="PackedScene" uid="uid://b1uv0obf6ba27" path="res://scenes_prefabs/LD/anim_line_erase.tscn" id="7_ywbm8"]
+[ext_resource type="Script" path="res://scenes_prefabs/GenerateLineErase.gd" id="6_a1hyu"]
+[ext_resource type="Texture2D" uid="uid://ck5cuwvyw2bba" path="res://Import/eraser.png" id="7_wsjox"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_k7n81"]
 viewport_path = NodePath("CanvasLayer- génération du mask/SubViewportContainer/SubViewport - texture substrat dynamique")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvtq0"]
+size = Vector2(205, 295)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l85ej"]
+blend_mode = 2
+
+[sub_resource type="Animation" id="Animation_lpt0i"]
+resource_name = "MoveLine"
+length = 5.0
+
+[sub_resource type="Animation" id="Animation_hpvaw"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gct0h"]
+_data = {
+"MoveLine": SubResource("Animation_lpt0i"),
+"RESET": SubResource("Animation_hpvaw")
+}
+
 [node name="Manager" type="Node2D"]
 script = ExtResource("1_f12ry")
-cheminDos = "res://scenes_prefabs/Levels/"
 
 [node name="MenuFin" parent="." instance=ExtResource("2_4lylk")]
-visible = false
-
-[node name="Transition" parent="." instance=ExtResource("3_e5yox")]
 
 [node name="TextureRectMask" type="TextureRect" parent="."]
 clip_children = 1
@@ -26,8 +41,7 @@ offset_right = 1152.0
 offset_bottom = 648.0
 texture = SubResource("ViewportTexture_k7n81")
 
-[node name="01" parent="TextureRectMask" instance=ExtResource("3_khka3")]
-visible = false
+[node name="Node2D" parent="TextureRectMask" instance=ExtResource("3_khka3")]
 
 [node name="Sample - niveau à cacher" parent="TextureRectMask" instance=ExtResource("1_n5pfr")]
 visible = false
@@ -54,4 +68,29 @@ render_target_update_mode = 4
 
 [node name="scene - TrailEraser" parent="CanvasLayer- génération du mask/SubViewportContainer/SubViewport - texture substrat dynamique" instance=ExtResource("2_2n85x")]
 
-[node name="animLineErase" parent="." instance=ExtResource("7_ywbm8")]
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(309, 125)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 1
+shape = SubResource("RectangleShape2D_gvtq0")
+
+[node name="Line2D" type="Line2D" parent="Area2D"]
+material = SubResource("CanvasItemMaterial_l85ej")
+scale = Vector2(0.568865, 0.866213)
+width = 50.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("6_a1hyu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+scale = Vector2(0.157064, 0.239162)
+texture = ExtResource("7_wsjox")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Area2D"]
+root_node = NodePath("")
+libraries = {
+"": SubResource("AnimationLibrary_gct0h")
+}
+autoplay = "MoveLine"

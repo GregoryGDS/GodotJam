@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://biu2gaajdla4o"]
+[gd_scene load_steps=16 format=3 uid="uid://o77j6cwl7spe"]
 
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_h605g"]
+[ext_resource type="Script" path="res://scripts/transitionManager.gd" id="1_y6wcf"]
 [ext_resource type="Texture2D" uid="uid://yjpmudentwki" path="res://Import/stage word.png" id="2_owcg3"]
 [ext_resource type="Texture2D" uid="uid://cfjjxkda6koki" path="res://Import/heart1.png" id="3_g5q62"]
 [ext_resource type="Texture2D" uid="uid://djdwsb2hchpwd" path="res://Import/heart 2.png" id="4_isr0j"]
@@ -80,7 +81,7 @@ _data = {
 }
 
 [sub_resource type="Animation" id="Animation_hewrd"]
-loop_mode = 2
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -88,10 +89,10 @@ tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1.85066, 1.85066), Vector2(1.94832, 1.94832)]
+"values": [Vector2(1.85066, 1.85066)]
 }
 
 [sub_resource type="Animation" id="Animation_ldtkw"]
@@ -118,19 +119,21 @@ _data = {
 }
 
 [node name="Transition" type="Node2D"]
+position = Vector2(0, 1)
+script = ExtResource("1_y6wcf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(580.061, 364.632)
-scale = Vector2(2.96477, 2.96477)
+position = Vector2(572.766, 363)
+scale = Vector2(2.89516, 2.89516)
 texture = ExtResource("1_h605g")
 
 [node name="StageWord" type="Sprite2D" parent="."]
-position = Vector2(381, 128)
+position = Vector2(379, 193)
 scale = Vector2(2.07022, 2.07022)
 texture = ExtResource("2_owcg3")
 
 [node name="Heart1" type="Sprite2D" parent="."]
-position = Vector2(358.013, 309.032)
+position = Vector2(350, 466)
 rotation = 0.350811
 scale = Vector2(1.50732, 1.50732)
 texture = ExtResource("3_g5q62")
@@ -143,7 +146,7 @@ autoplay = "heart bouncing"
 speed_scale = 0.53
 
 [node name="Heart2" type="Sprite2D" parent="."]
-position = Vector2(586.013, 320.032)
+position = Vector2(578, 477)
 scale = Vector2(1.50732, 1.50732)
 texture = ExtResource("4_isr0j")
 
@@ -155,7 +158,7 @@ autoplay = "heart bouncing"
 speed_scale = 0.53
 
 [node name="Heart3" type="Sprite2D" parent="."]
-position = Vector2(808.013, 325.032)
+position = Vector2(819, 486)
 scale = Vector2(1.50732, 1.50732)
 texture = ExtResource("5_ql7xj")
 
@@ -167,7 +170,7 @@ autoplay = "heart bouncing"
 speed_scale = 0.53
 
 [node name="Heart" type="Sprite2D" parent="."]
-position = Vector2(589.486, 324.28)
+position = Vector2(597, 480)
 scale = Vector2(1.85066, 1.85066)
 texture = ExtResource("6_4tchq")
 
@@ -181,3 +184,9 @@ speed_scale = 0.55
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(573, 328)
 scale = Vector2(1.04, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 672.0
+offset_top = 118.0
+offset_right = 933.0
+offset_bottom = 268.0

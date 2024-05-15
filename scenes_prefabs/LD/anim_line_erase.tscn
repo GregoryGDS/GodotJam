@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1uv0obf6ba27"]
+
+[ext_resource type="Texture2D" uid="uid://ck5cuwvyw2bba" path="res://Import/eraser.png" id="1_w1rx0"]
+
+[sub_resource type="Animation" id="Animation_uy5v8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(360, -291)]
+}
+
+[sub_resource type="Animation" id="Animation_t3pr0"]
+resource_name = "moveErase"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(219, -288), Vector2(-158, 676), Vector2(520, -151), Vector2(152, 816), Vector2(873, -201), Vector2(567, 783), Vector2(1273, -107), Vector2(976, 807)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v5whl"]
+_data = {
+"RESET": SubResource("Animation_uy5v8"),
+"moveErase": SubResource("Animation_t3pr0")
+}
+
+[node name="animLineErase" type="Sprite2D"]
+position = Vector2(360, -291)
+scale = Vector2(0.199, 0.199)
+texture = ExtResource("1_w1rx0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v5whl")
+}
+speed_scale = 2.0
