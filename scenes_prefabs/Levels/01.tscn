@@ -1,15 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://bmoei753km618"]
+[gd_scene load_steps=21 format=3 uid="uid://bmoei753km618"]
 
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_30nu5"]
 [ext_resource type="Texture2D" uid="uid://bbfdvdqlwnsbx" path="res://Import/tree.png" id="1_xvbaq"]
-[ext_resource type="Texture2D" uid="uid://bfssqfe4jyuak" path="res://Import/house.png" id="2_5qfia"]
 [ext_resource type="Texture2D" uid="uid://dswwffc6yw7aq" path="res://Import/grass.png" id="3_58gdt"]
-[ext_resource type="Texture2D" uid="uid://cjqpwa8uyk8m1" path="res://Import/flower.png" id="4_jvtvu"]
-[ext_resource type="Texture2D" uid="uid://cfllhee25bmlx" path="res://Import/soleil.png" id="5_wc2lb"]
-[ext_resource type="Texture2D" uid="uid://bbrvvucwqvkjs" path="res://Import/echelle.png" id="6_4g6rv"]
+[ext_resource type="Texture2D" uid="uid://xyk8tgyqlajp" path="res://Import/Echelleclaire.png" id="4_uuv5r"]
 [ext_resource type="Texture2D" uid="uid://bf3s7txbm8owb" path="res://Import/patrick.png" id="7_deupa"]
 [ext_resource type="Texture2D" uid="uid://cpn6u2ix42vcp" path="res://Import/JEan-luc.png" id="8_ny5ho"]
 [ext_resource type="Texture2D" uid="uid://ce7gjnnf31er" path="res://Import/marine.png" id="9_fqbwm"]
+[ext_resource type="Texture2D" uid="uid://bg55sin7ttnby" path="res://Import/Feuille.png" id="9_ytcnj"]
 [ext_resource type="Texture2D" uid="uid://cs4t5l0itx6q2" path="res://Import/appel.png" id="11_xclbs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1xn3"]
@@ -37,61 +35,154 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_10b64"]
+resource_name = "Appel"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.4, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-0.523599, -0.523599, 0.691972, 0.691972]
+}
+
+[sub_resource type="Animation" id="Animation_4rgm7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nc7ej"]
+_data = {
+"Appel": SubResource("Animation_10b64"),
+"RESET": SubResource("Animation_4rgm7")
+}
+
+[sub_resource type="Animation" id="Animation_mbjcm"]
+resource_name = "Leaf"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6.1, 8, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3731.73, 463.418), Vector2(3308.97, 1276.43), Vector2(4227.67, 1650.42), Vector2(3178.88, 2764.25), Vector2(4040.68, 3617.91), Vector2(4406.54, 5040.69)]
+}
+
+[sub_resource type="Animation" id="Animation_fi6qp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3731.73, 1073.18)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lckiv"]
+_data = {
+"Leaf": SubResource("Animation_mbjcm"),
+"RESET": SubResource("Animation_fi6qp")
+}
+
+[sub_resource type="Animation" id="Animation_8p7x4"]
+resource_name = "Leaf2"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(5089.47, 910.575), Vector2(5609.79, 1796.76), Vector2(4471.58, 2723.6), Vector2(5430.93, 3731.73), Vector2(4317.1, 4406.53), Vector2(5479.71, 5016.29)]
+}
+
+[sub_resource type="Animation" id="Animation_sfrjt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5089.47, 910.575)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ka2w"]
+_data = {
+"Leaf2": SubResource("Animation_8p7x4"),
+"RESET": SubResource("Animation_sfrjt")
+}
+
 [node name="Node2D" type="Node2D"]
 scale = Vector2(0.122999, 0.122999)
 
 [node name="Page" type="Sprite2D" parent="."]
 position = Vector2(4748, 2861.81)
-scale = Vector2(24.1792, 24.1792)
+scale = Vector2(48.0815, 47.3139)
 texture = ExtResource("1_30nu5")
 
 [node name="Tree" type="Sprite2D" parent="."]
-position = Vector2(3902.47, 2617.9)
-scale = Vector2(1.87695, 1.87695)
+position = Vector2(3601.65, 1804.89)
+scale = Vector2(4.216, 4.216)
 texture = ExtResource("1_xvbaq")
 
-[node name="House" type="Sprite2D" parent="."]
-position = Vector2(7813.06, 3991.9)
-scale = Vector2(1, 1)
-texture = ExtResource("2_5qfia")
-
-[node name="Grass2" type="Sprite2D" parent="."]
-position = Vector2(8520.38, 5024.42)
-scale = Vector2(1, 1)
-texture = ExtResource("3_58gdt")
-
 [node name="Grass4" type="Sprite2D" parent="."]
-position = Vector2(6089.47, 5040.69)
+position = Vector2(6307.25, 7039.45)
 scale = Vector2(1, 1)
 texture = ExtResource("3_58gdt")
 
 [node name="Grass3" type="Sprite2D" parent="."]
-position = Vector2(3601.65, 5032.56)
+position = Vector2(3819.43, 7031.32)
 scale = Vector2(1, 1)
 texture = ExtResource("3_58gdt")
-
-[node name="Flower" type="Sprite2D" parent="."]
-position = Vector2(910.576, 4617.92)
-scale = Vector2(0.39635, 0.39635)
-texture = ExtResource("4_jvtvu")
 
 [node name="Grass" type="Sprite2D" parent="."]
-position = Vector2(1243.91, 5024.43)
+position = Vector2(1461.69, 7023.19)
 texture = ExtResource("3_58gdt")
 
-[node name="Soleil" type="Sprite2D" parent="."]
-position = Vector2(455.288, 650.411)
-scale = Vector2(1.60443, 1.60443)
-texture = ExtResource("5_wc2lb")
-
-[node name="Echelle" type="Sprite2D" parent="."]
-position = Vector2(4715.48, 3991.9)
-scale = Vector2(0.776595, 0.776595)
-texture = ExtResource("6_4g6rv")
+[node name="Echelleclaire" type="Sprite2D" parent="."]
+position = Vector2(5089.47, 4414.66)
+scale = Vector2(2.10363, 2.10363)
+texture = ExtResource("4_uuv5r")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(5178.9, 4227.67)
-scale = Vector2(1, 1)
+position = Vector2(5739.88, 3089.45)
+scale = Vector2(1.36471, 0.948719)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-447.158, -1593.51)
@@ -99,12 +190,43 @@ scale = Vector2(17.3132, 8.38134)
 shape = SubResource("RectangleShape2D_m1xn3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(4756.13, 4414.67)
+position = Vector2(5081.34, 6211.43)
+scale = Vector2(1.81919, 1.81919)
 sprite_frames = SubResource("SpriteFrames_s1kmu")
 
 [node name="Appel" type="Sprite2D" parent="."]
-position = Vector2(4471.58, 2422.78)
-scale = Vector2(0.364286, 0.364286)
+position = Vector2(4764.26, 1398.38)
+scale = Vector2(0.654132, 0.601945)
 texture = ExtResource("11_xclbs")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Appel"]
+libraries = {
+"": SubResource("AnimationLibrary_nc7ej")
+}
+autoplay = "Appel"
+
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(121.952, 2593.51)
+scale = Vector2(1, 1.01213)
+limit_left = 1
+
+[node name="Feuille" type="Sprite2D" parent="."]
+position = Vector2(3731.73, 1073.18)
+scale = Vector2(0.279284, 0.279284)
+texture = ExtResource("9_ytcnj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Feuille"]
+libraries = {
+"": SubResource("AnimationLibrary_lckiv")
+}
+
+[node name="Feuille2" type="Sprite2D" parent="."]
+position = Vector2(5089.47, 910.575)
+rotation = -2.02513
+scale = Vector2(0.304903, 0.304903)
+texture = ExtResource("9_ytcnj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Feuille2"]
+libraries = {
+"": SubResource("AnimationLibrary_8ka2w")
+}
