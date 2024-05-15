@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dkkb3fnvxur4u"]
+[gd_scene load_steps=14 format=3 uid="uid://dkkb3fnvxur4u"]
 
 [ext_resource type="Script" path="res://scripts/LevelManager.gd" id="1_f12ry"]
 [ext_resource type="PackedScene" uid="uid://blcvhra8sgwej" path="res://sample.tscn" id="1_n5pfr"]
 [ext_resource type="PackedScene" uid="uid://db6crh86yecq1" path="res://scenes_prefabs/GenerateEraser.tscn" id="2_2n85x"]
 [ext_resource type="PackedScene" uid="uid://noawj26u85mq" path="res://scenes_prefabs/menu_fin_test.tscn" id="2_4lylk"]
+[ext_resource type="PackedScene" uid="uid://r7tujup2txd3" path="res://scenes_prefabs/Levels/01.tscn" id="3_khka3"]
 [ext_resource type="Script" path="res://scenes_prefabs/GenerateLineErase.gd" id="6_a1hyu"]
 [ext_resource type="Texture2D" uid="uid://ck5cuwvyw2bba" path="res://Import/eraser.png" id="7_wsjox"]
 
@@ -19,33 +20,9 @@ blend_mode = 2
 [sub_resource type="Animation" id="Animation_lpt0i"]
 resource_name = "MoveLine"
 length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(69.5, 69.5), Vector2(183, 372), Vector2(701, 205), Vector2(1185, 697), Vector2(124, -132), Vector2(254, 773)]
-}
 
 [sub_resource type="Animation" id="Animation_hpvaw"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(69.5, 69.5)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gct0h"]
 _data = {
@@ -64,7 +41,10 @@ offset_right = 1152.0
 offset_bottom = 648.0
 texture = SubResource("ViewportTexture_k7n81")
 
+[node name="Node2D" parent="TextureRectMask" instance=ExtResource("3_khka3")]
+
 [node name="Sample - niveau à cacher" parent="TextureRectMask" instance=ExtResource("1_n5pfr")]
+visible = false
 
 [node name="CanvasLayer- génération du mask" type="CanvasLayer" parent="."]
 

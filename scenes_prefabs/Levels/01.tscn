@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bmoei753km618"]
+[gd_scene load_steps=14 format=3 uid="uid://r7tujup2txd3"]
 
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_30nu5"]
 [ext_resource type="Texture2D" uid="uid://bbfdvdqlwnsbx" path="res://Import/tree.png" id="1_xvbaq"]
@@ -52,22 +52,18 @@ texture = ExtResource("1_xvbaq")
 
 [node name="House" type="Sprite2D" parent="."]
 position = Vector2(7813.06, 3991.9)
-scale = Vector2(1, 1)
 texture = ExtResource("2_5qfia")
 
 [node name="Grass2" type="Sprite2D" parent="."]
 position = Vector2(8520.38, 5024.42)
-scale = Vector2(1, 1)
 texture = ExtResource("3_58gdt")
 
 [node name="Grass4" type="Sprite2D" parent="."]
 position = Vector2(6089.47, 5040.69)
-scale = Vector2(1, 1)
 texture = ExtResource("3_58gdt")
 
 [node name="Grass3" type="Sprite2D" parent="."]
 position = Vector2(3601.65, 5032.56)
-scale = Vector2(1, 1)
 texture = ExtResource("3_58gdt")
 
 [node name="Flower" type="Sprite2D" parent="."]
@@ -91,7 +87,6 @@ texture = ExtResource("6_4g6rv")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(5178.9, 4227.67)
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-447.158, -1593.51)
