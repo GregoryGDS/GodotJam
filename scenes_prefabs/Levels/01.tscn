@@ -163,12 +163,10 @@ texture = ExtResource("1_xvbaq")
 
 [node name="Grass4" type="Sprite2D" parent="."]
 position = Vector2(6307.25, 7039.45)
-scale = Vector2(1, 1)
 texture = ExtResource("3_58gdt")
 
 [node name="Grass3" type="Sprite2D" parent="."]
 position = Vector2(3819.43, 7031.32)
-scale = Vector2(1, 1)
 texture = ExtResource("3_58gdt")
 
 [node name="Grass" type="Sprite2D" parent="."]
