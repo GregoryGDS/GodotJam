@@ -117,7 +117,7 @@ _data = {
 "heart-contour": SubResource("Animation_ldtkw")
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Transition" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(580.061, 364.632)

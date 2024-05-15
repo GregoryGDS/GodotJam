@@ -1,12 +1,42 @@
-[gd_scene load_steps=12 format=3 uid="uid://ckicg6faf2uat"]
+[gd_scene load_steps=18 format=3 uid="uid://ckicg6faf2uat"]
 
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_a0hgf"]
 [ext_resource type="Texture2D" uid="uid://dsgcllesgowb1" path="res://Import/caisse seule.png" id="2_6ygcq"]
 [ext_resource type="Texture2D" uid="uid://bjgntomj0j6x" path="res://Import/tiket.png" id="3_vqo3d"]
 [ext_resource type="Texture2D" uid="uid://c0mq02ist4xb5" path="res://Import/carte bleu.png" id="4_hmnaj"]
 [ext_resource type="Texture2D" uid="uid://be2jkb1jyy16x" path="res://Import/tpe wrong.png" id="5_8q8o3"]
+[ext_resource type="Script" path="res://scripts/DragandDrop.gd" id="5_pf8ch"]
 [ext_resource type="Texture2D" uid="uid://bo770xuhrbqpm" path="res://Import/tpe good.png" id="6_ea20k"]
+[ext_resource type="Script" path="res://scripts/tpeANIM.gd" id="7_gafol"]
 [ext_resource type="Texture2D" uid="uid://cn53srfu5qslh" path="res://Import/tpe.png" id="7_mu36x"]
+[ext_resource type="Script" path="res://Tpe.gd" id="10_ho0ux"]
+
+[sub_resource type="Animation" id="Animation_2uv2d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.318182)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(958, 153)]
+}
 
 [sub_resource type="Animation" id="Animation_7x7ti"]
 resource_name = "ticket"
@@ -37,38 +67,17 @@ tracks/1/keys = {
 "values": [Vector2(958, 153), Vector2(959.667, 149), Vector2(963, 141), Vector2(963, 141)]
 }
 
-[sub_resource type="Animation" id="Animation_2uv2d"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 0.318182)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(958, 153)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2a0s2"]
 _data = {
 "RESET": SubResource("Animation_2uv2d"),
 "ticket": SubResource("Animation_7x7ti")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1d26y"]
+size = Vector2(234.257, 146.45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohx2i"]
+size = Vector2(20, 129.681)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_djrpi"]
 animations = [{
@@ -76,7 +85,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_8q8o3")
 }, {
-"duration": 7.0,
+"duration": 1.0,
 "texture": ExtResource("6_ea20k")
 }],
 "loop": true,
@@ -84,7 +93,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upf7x"]
+size = Vector2(139, 74)
+
+[node name="cb" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(575, 323)
@@ -112,22 +124,55 @@ libraries = {
 position = Vector2(650, 496)
 rotation = 1.55557
 texture = ExtResource("4_hmnaj")
+script = ExtResource("5_pf8ch")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-16, -81)
+[node name="Area2D" type="Area2D" parent="CarteBleu"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CarteBleu/Area2D"]
+position = Vector2(5.98404, 1.09137)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_1d26y")
+
+[node name="piste_magnetique" type="Area2D" parent="CarteBleu"]
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CarteBleu/piste_magnetique"]
+position = Vector2(8.45575, -5.92297)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ohx2i")
+
+[node name="TpeAnim" type="AnimatedSprite2D" parent="."]
+position = Vector2(250, 331)
 sprite_frames = SubResource("SpriteFrames_djrpi")
 animation = &"tpe"
 frame = 1
-frame_progress = 0.0818431
+frame_progress = 0.622546
+script = ExtResource("7_gafol")
 
-[node name="TpeGood" type="Sprite2D" parent="."]
-position = Vector2(249, 332)
-texture = ExtResource("6_ea20k")
-
-[node name="TpeWrong" type="Sprite2D" parent="."]
-position = Vector2(249, 330)
-texture = ExtResource("5_8q8o3")
-
-[node name="Tpe" type="Sprite2D" parent="."]
+[node name="Tpe" type="Sprite2D" parent="." node_paths=PackedStringArray("piste")]
 position = Vector2(281, 399)
 texture = ExtResource("7_mu36x")
+script = ExtResource("10_ho0ux")
+piste = NodePath("../CarteBleu/piste_magnetique")
+
+[node name="tpe_haut" type="Area2D" parent="Tpe"]
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tpe/tpe_haut"]
+position = Vector2(63, -92)
+shape = SubResource("RectangleShape2D_upf7x")
+
+[node name="tpe_bas" type="Area2D" parent="Tpe"]
+position = Vector2(9, 265)
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tpe/tpe_bas"]
+position = Vector2(63, -92)
+shape = SubResource("RectangleShape2D_upf7x")
+
+[connection signal="mouse_entered" from="CarteBleu/Area2D" to="CarteBleu" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="CarteBleu/Area2D" to="CarteBleu" method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="CarteBleu/piste_magnetique" to="CarteBleu" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="CarteBleu/piste_magnetique" to="CarteBleu" method="_on_area_2d_mouse_exited"]
+[connection signal="area_entered" from="Tpe/tpe_haut" to="Tpe" method="_on_tpe_haut_area_entered"]
+[connection signal="area_entered" from="Tpe/tpe_bas" to="Tpe" method="_on_tpe_bas_area_entered"]
