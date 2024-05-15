@@ -1,6 +1,7 @@
-extends Area2D
+extends Node2D
 
-#@onready var label = %Label
+@onready var label = $Label
+var arrayHeart: Array = [$Heart1, $Heart2, $Heart3]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,8 +11,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-
-func _on_area_entered(area):
-	#label.text = "win";
-	print("ok dans area fin lv");

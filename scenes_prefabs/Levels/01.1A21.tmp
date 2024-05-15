@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://r7tujup2txd3"]
+[gd_scene load_steps=24 format=3 uid="uid://r7tujup2txd3"]
 
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_30nu5"]
+[ext_resource type="Script" path="res://scenes_prefabs/LD/Camera2DFollow.gd" id="1_p784q"]
 [ext_resource type="Texture2D" uid="uid://bbfdvdqlwnsbx" path="res://Import/tree.png" id="1_xvbaq"]
 [ext_resource type="Texture2D" uid="uid://dswwffc6yw7aq" path="res://Import/grass.png" id="3_58gdt"]
 [ext_resource type="Texture2D" uid="uid://xyk8tgyqlajp" path="res://Import/Echelleclaire.png" id="4_uuv5r"]
@@ -153,38 +154,44 @@ _data = {
 [node name="Node2D" type="Node2D"]
 scale = Vector2(0.122999, 0.122999)
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(121.952, 2593.51)
+scale = Vector2(1, 1.01213)
+limit_left = 1
+script = ExtResource("1_p784q")
+
 [node name="Page" type="Sprite2D" parent="."]
-position = Vector2(5786.65, 1806.93)
-scale = Vector2(35.8633, 35.2907)
+position = Vector2(4748, 2861.81)
+scale = Vector2(48.0815, 47.3139)
 texture = ExtResource("1_30nu5")
 
 [node name="Tree" type="Sprite2D" parent="."]
-position = Vector2(4301.54, 1749.28)
-scale = Vector2(2.20025, 2.21622)
+position = Vector2(3601.65, 1804.89)
+scale = Vector2(4.216, 4.216)
 texture = ExtResource("1_xvbaq")
 
 [node name="Grass4" type="Sprite2D" parent="."]
-position = Vector2(6699.24, 4691.1)
+position = Vector2(6307.25, 7039.45)
 texture = ExtResource("3_58gdt")
 
 [node name="Grass3" type="Sprite2D" parent="."]
-position = Vector2(4439.06, 4861.83)
+position = Vector2(3819.43, 7031.32)
 texture = ExtResource("3_58gdt")
 
 [node name="Grass" type="Sprite2D" parent="."]
-position = Vector2(2699.21, 4650.44)
+position = Vector2(1461.69, 7023.19)
 texture = ExtResource("3_58gdt")
 
 [node name="Echelleclaire" type="Sprite2D" parent="."]
-position = Vector2(5034.14, 3254.43)
-scale = Vector2(1.22328, 1.2946)
+position = Vector2(5089.47, 4414.66)
+scale = Vector2(2.10363, 2.10363)
 texture = ExtResource("4_uuv5r")
 
 [node name="Area2D - fin LV" parent="." instance=ExtResource("5_aw3bn")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(5008.17, 4203.29)
-scale = Vector2(1.33266, 1.33266)
+position = Vector2(5146.38, 4219.55)
+scale = Vector2(1.81919, 1.81919)
 sprite_frames = SubResource("SpriteFrames_s1kmu")
 script = ExtResource("8_qdoqk")
 espaceUp = 100

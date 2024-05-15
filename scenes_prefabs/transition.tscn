@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://o77j6cwl7spe"]
+[gd_scene load_steps=16 format=3 uid="uid://o77j6cwl7spe"]
 
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_h605g"]
+[ext_resource type="Script" path="res://scripts/transitionManager.gd" id="1_y6wcf"]
 [ext_resource type="Texture2D" uid="uid://yjpmudentwki" path="res://Import/stage word.png" id="2_owcg3"]
 [ext_resource type="Texture2D" uid="uid://cfjjxkda6koki" path="res://Import/heart1.png" id="3_g5q62"]
 [ext_resource type="Texture2D" uid="uid://djdwsb2hchpwd" path="res://Import/heart 2.png" id="4_isr0j"]
@@ -117,7 +118,9 @@ _data = {
 "heart-contour": SubResource("Animation_ldtkw")
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Transition" type="Node2D"]
+position = Vector2(0, 1)
+script = ExtResource("1_y6wcf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(572.766, 363)
@@ -181,3 +184,9 @@ speed_scale = 0.55
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(573, 328)
 scale = Vector2(1.04, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 672.0
+offset_top = 118.0
+offset_right = 933.0
+offset_bottom = 268.0
