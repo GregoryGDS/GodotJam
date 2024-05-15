@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cbrxoonbs5b82"]
 
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_t6tox"]
-[ext_resource type="Script" path="res://scenes_prefabs/Levels/Mouche.gd" id="2_s2vm3"]
+[ext_resource type="Script" path="res://scripts/Mouche.gd" id="2_s2vm3"]
 [ext_resource type="Texture2D" uid="uid://ctfckjub46kst" path="res://Import/mouchepaf.png" id="3_gsf6n"]
 [ext_resource type="Texture2D" uid="uid://bbj0760gudq4g" path="res://Import/aile gauche.png" id="4_p2b0k"]
 [ext_resource type="Texture2D" uid="uid://qpfy2vhps6tv" path="res://Import/tete.png" id="5_r1t2y"]
@@ -72,7 +72,7 @@ _data = {
 "mouche": SubResource("Animation_ss6p5")
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Lvl02_Mouche" type="Node2D"]
 scale = Vector2(0.122999, 0.122999)
 
 [node name="Page" type="Sprite2D" parent="."]
@@ -86,7 +86,7 @@ scale = Vector2(1, 1.01213)
 limit_left = 1
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(1666.68, 1536.6)
+position = Vector2(6796.8, 1894.32)
 rotation = -2.01425
 scale = Vector2(0.504762, 0.504762)
 script = ExtResource("2_s2vm3")
@@ -126,82 +126,123 @@ libraries = {
 }
 autoplay = "mouche"
 
-[node name="Mouche5" type="Node2D" parent="."]
-position = Vector2(1747.98, 2008.15)
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2(1130.09, 4341.5)
 rotation = -2.01425
 scale = Vector2(0.504762, 0.504762)
+script = ExtResource("2_s2vm3")
+moveRange = Rect2(0, 500, 500, 0)
 
-[node name="Mouche4" type="Node2D" parent="."]
-position = Vector2(7154.53, 3065.07)
-scale = Vector2(0.533024, 0.533024)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(488.117, -89.1061)
+rotation = -0.383972
+scale = Vector2(7.57623, 7.57623)
+shape = SubResource("CircleShape2D_w7go7")
 
-[node name="AileGauche" type="Sprite2D" parent="Mouche4"]
-position = Vector2(442.331, -350.816)
+[node name="AileGauche" type="Sprite2D" parent="Area2D3"]
+position = Vector2(442.331, -350.817)
 scale = Vector2(0.978684, 0.978684)
 texture = ExtResource("4_p2b0k")
 
-[node name="Tete" type="Sprite2D" parent="Mouche4"]
-position = Vector2(-0.000976563, 0)
+[node name="Tete" type="Sprite2D" parent="Area2D3"]
+position = Vector2(-0.00146484, 0)
 texture = ExtResource("5_r1t2y")
 
-[node name="AileDroite" type="Sprite2D" parent="Mouche4"]
-position = Vector2(594.861, 152.529)
+[node name="AileDroite" type="Sprite2D" parent="Area2D3"]
+position = Vector2(594.861, 152.53)
 scale = Vector2(0.800381, 0.800381)
 texture = ExtResource("6_rvdvx")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Mouche4"]
+[node name="Mouchepaf" type="Sprite2D" parent="Area2D3"]
+visible = false
+position = Vector2(232.422, -264.061)
+rotation = 2.01425
+scale = Vector2(1.98113, 1.98113)
+texture = ExtResource("3_gsf6n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D3"]
 root_node = NodePath("../AileGauche")
 libraries = {
 "": SubResource("AnimationLibrary_fiwm0")
 }
 autoplay = "mouche"
 
-[node name="Mouche6" type="Node2D" parent="."]
-position = Vector2(2170.75, 4536.62)
-rotation = -3.46669
-scale = Vector2(0.366575, 0.366575)
+[node name="Area2D4" type="Area2D" parent="."]
+position = Vector2(4829.31, 4268.33)
+rotation = -2.01425
+scale = Vector2(0.37517, 0.37517)
+script = ExtResource("2_s2vm3")
+moveRange = Rect2(0, 500, 500, 0)
 
-[node name="AileGauche" type="Sprite2D" parent="Mouche6"]
-position = Vector2(442.331, -350.816)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+position = Vector2(488.117, -89.1061)
+rotation = -0.383972
+scale = Vector2(7.57623, 7.57623)
+shape = SubResource("CircleShape2D_w7go7")
+
+[node name="AileGauche" type="Sprite2D" parent="Area2D4"]
+position = Vector2(442.331, -350.817)
 scale = Vector2(0.978684, 0.978684)
 texture = ExtResource("4_p2b0k")
 
-[node name="Tete" type="Sprite2D" parent="Mouche6"]
-position = Vector2(-0.000976563, 0)
+[node name="Tete" type="Sprite2D" parent="Area2D4"]
+position = Vector2(-0.00146484, 0)
 texture = ExtResource("5_r1t2y")
 
-[node name="AileDroite" type="Sprite2D" parent="Mouche6"]
-position = Vector2(594.861, 152.529)
+[node name="AileDroite" type="Sprite2D" parent="Area2D4"]
+position = Vector2(594.861, 152.53)
 scale = Vector2(0.800381, 0.800381)
 texture = ExtResource("6_rvdvx")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Mouche6"]
+[node name="Mouchepaf" type="Sprite2D" parent="Area2D4"]
+visible = false
+position = Vector2(232.422, -264.061)
+rotation = 2.01425
+scale = Vector2(1.98113, 1.98113)
+texture = ExtResource("3_gsf6n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D4"]
 root_node = NodePath("../AileGauche")
 libraries = {
 "": SubResource("AnimationLibrary_fiwm0")
 }
 autoplay = "mouche"
 
-[node name="Mouche7" type="Node2D" parent="."]
-position = Vector2(4382.15, 2918.72)
-rotation = -1.24841
-scale = Vector2(0.676803, 0.676803)
+[node name="Area2D5" type="Area2D" parent="."]
+position = Vector2(3056.94, 1691.07)
+rotation = -2.01425
+scale = Vector2(0.394995, 0.394995)
+script = ExtResource("2_s2vm3")
+moveRange = Rect2(0, 500, 500, 0)
 
-[node name="AileGauche" type="Sprite2D" parent="Mouche7"]
-position = Vector2(442.331, -350.816)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5"]
+position = Vector2(488.117, -89.1061)
+rotation = -0.383972
+scale = Vector2(7.57623, 7.57623)
+shape = SubResource("CircleShape2D_w7go7")
+
+[node name="AileGauche" type="Sprite2D" parent="Area2D5"]
+position = Vector2(442.331, -350.817)
 scale = Vector2(0.978684, 0.978684)
 texture = ExtResource("4_p2b0k")
 
-[node name="Tete" type="Sprite2D" parent="Mouche7"]
-position = Vector2(-0.000976563, 0)
+[node name="Tete" type="Sprite2D" parent="Area2D5"]
+position = Vector2(-0.00146484, 0)
 texture = ExtResource("5_r1t2y")
 
-[node name="AileDroite" type="Sprite2D" parent="Mouche7"]
-position = Vector2(594.861, 152.529)
+[node name="AileDroite" type="Sprite2D" parent="Area2D5"]
+position = Vector2(594.861, 152.53)
 scale = Vector2(0.800381, 0.800381)
 texture = ExtResource("6_rvdvx")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Mouche7"]
+[node name="Mouchepaf" type="Sprite2D" parent="Area2D5"]
+visible = false
+position = Vector2(232.422, -264.061)
+rotation = 2.01425
+scale = Vector2(1.98113, 1.98113)
+texture = ExtResource("3_gsf6n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D5"]
 root_node = NodePath("../AileGauche")
 libraries = {
 "": SubResource("AnimationLibrary_fiwm0")
@@ -209,3 +250,6 @@ libraries = {
 autoplay = "mouche"
 
 [connection signal="mouse_entered" from="Area2D" to="Area2D" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Area2D3" to="Area2D3" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Area2D4" to="Area2D4" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Area2D5" to="Area2D5" method="_on_mouse_entered"]
