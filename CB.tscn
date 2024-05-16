@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ckicg6faf2uat"]
+[gd_scene load_steps=19 format=3 uid="uid://ckicg6faf2uat"]
 
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_a0hgf"]
 [ext_resource type="FontFile" uid="uid://dx7lx5uteafob" path="res://Chantal Bold.ttf" id="1_ieolf"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bo770xuhrbqpm" path="res://Import/tpe good.png" id="6_ea20k"]
 [ext_resource type="Texture2D" uid="uid://cn53srfu5qslh" path="res://Import/tpe.png" id="7_mu36x"]
 [ext_resource type="Script" path="res://Tpe.gd" id="10_ho0ux"]
+[ext_resource type="AudioStream" uid="uid://rqy6bxkmb7bj" path="res://sounds/CardCorrect.wav" id="12_306da"]
 
 [sub_resource type="Animation" id="Animation_2uv2d"]
 length = 2.0
@@ -107,7 +108,7 @@ libraries = {
 autoplay = "ticket"
 
 [node name="CarteBleu" type="Sprite2D" parent="."]
-position = Vector2(650, 496)
+position = Vector2(620.5, 404)
 rotation = 1.55557
 texture = ExtResource("4_hmnaj")
 script = ExtResource("5_pf8ch")
@@ -126,14 +127,14 @@ position = Vector2(8.45575, -5.92297)
 shape = SubResource("RectangleShape2D_ohx2i")
 
 [node name="TpeAnim" type="AnimatedSprite2D" parent="."]
-position = Vector2(250, 331)
+position = Vector2(220.5, 239)
 sprite_frames = SubResource("SpriteFrames_djrpi")
 animation = &"tpe"
 frame = 1
 frame_progress = 0.622546
 
 [node name="Tpe" type="Sprite2D" parent="." node_paths=PackedStringArray("piste")]
-position = Vector2(281, 395)
+position = Vector2(251.5, 303)
 texture = ExtResource("7_mu36x")
 script = ExtResource("10_ho0ux")
 piste = NodePath("../CarteBleu/piste_magnetique")
@@ -142,7 +143,7 @@ piste = NodePath("../CarteBleu/piste_magnetique")
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tpe/tpe_haut"]
-position = Vector2(37, -73)
+position = Vector2(62, -75)
 shape = SubResource("RectangleShape2D_upf7x")
 
 [node name="tpe_bas" type="Area2D" parent="Tpe"]
@@ -150,20 +151,26 @@ position = Vector2(9, 265)
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tpe/tpe_bas"]
-position = Vector2(63, -92)
+position = Vector2(63, -118)
 shape = SubResource("RectangleShape2D_upf7x")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(575, 323)
 
 [node name="Label" type="Label" parent="Camera2D"]
-offset_left = -364.0
-offset_top = -14.0
-offset_right = -130.0
-offset_bottom = 59.0
+offset_left = -393.5
+offset_top = -106.0
+offset_right = -159.5
+offset_bottom = -33.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_ieolf")
 theme_override_font_sizes/font_size = 17
+metadata/_edit_use_anchors_ = true
+
+[node name="CardUncorrect" type="AudioStreamPlayer" parent="."]
+
+[node name="CardCorrect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_306da")
 
 [connection signal="mouse_entered" from="CarteBleu/Area2D" to="CarteBleu" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="CarteBleu/Area2D" to="CarteBleu" method="_on_area_2d_mouse_exited"]
