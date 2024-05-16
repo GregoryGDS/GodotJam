@@ -6,7 +6,7 @@ extends Node2D
 @onready var color_rect = $ColorRect
 @onready var texture_progress_bar = $TextureProgressBar
 
-var init_PosY:float
+
 
 var totalTime:float
 var timerInLevel:float
@@ -14,13 +14,16 @@ var timerInLevel:float
 @export var initTimer:float
 var initial_height: float = 406
 
+var init_PosY:float # minPosYGomme
+var maxPosYGomme:float = 455
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# reset en brut
 	GlobalManager.timerIsStop = false
 	
 	color_rect.size.y = initial_height
-	init_PosY = 65
+	init_PosY = 54 
 	eraser.position.y = init_PosY
 	
 	
@@ -57,3 +60,10 @@ func proportion():
 
 func _on_timer_timeout():
 	GlobalManager.timerIsStop = true
+
+
+func _on_texture_progress_bar_value_changed(value):
+	eraser.position.y = lerp(maxPosYGomme, init_PosY, timer.time_left / totalTime)
+	#var t = (totalTime / timer.time_left)
+	#eraser.position.y = init_PosY + (maxPosYGomme - init_PosY) * t
+	pass # Replace with function body.

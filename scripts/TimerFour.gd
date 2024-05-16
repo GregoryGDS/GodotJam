@@ -63,6 +63,10 @@ func _process(_delta):
 		isStop = true
 		loose.emit()
 		jauge_timer.timer.stop()
+		Fume.visible=true
+		Fume2.visible=true
+		Fume3.visible=true
+		Fume4.visible=true
 	else:
 		update_animation()	
 	
@@ -77,9 +81,6 @@ func _process(_delta):
 			#loose.emit()
 			print("-- fini perdu timer -- ")
 	
-
-
-
 
 	if (!isStop && !isLoose):
 		if Input.is_action_pressed("leftclick"):
@@ -96,6 +97,10 @@ func _process(_delta):
 			else:
 				isLoose = true
 				print ("lose")
+				Fume.visible=true
+				Fume2.visible=true
+				Fume3.visible=true
+				Fume4.visible=true
 	
 		if anim.frame == 2 :
 			Fume.visible=true
