@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://wueiqkuckerf"]
+[gd_scene load_steps=31 format=3 uid="uid://wueiqkuckerf"]
 
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_mmv0b"]
 [ext_resource type="Texture2D" uid="uid://cw5xvtbluj5td" path="res://Import/four1.png" id="2_rtif8"]
@@ -10,6 +10,10 @@
 [ext_resource type="FontFile" uid="uid://dx7lx5uteafob" path="res://Chantal Bold.ttf" id="8_l1re8"]
 [ext_resource type="AudioStream" uid="uid://btplndao2ywl0" path="res://sounds/fourcontinue.wav" id="9_7us75"]
 [ext_resource type="AudioStream" uid="uid://ccmh5vjwt4e5u" path="res://sounds/fourDing.wav" id="10_s4cm0"]
+[ext_resource type="Texture2D" uid="uid://b5dkdj6j1xq8y" path="res://Import/fume.png" id="11_kmpk3"]
+[ext_resource type="Texture2D" uid="uid://7nvsvk88bcrb" path="res://Import/burger.png" id="12_d60kh"]
+[ext_resource type="Texture2D" uid="uid://b72ys1l47j0m8" path="res://Import/fume2.png" id="13_h0bfb"]
+[ext_resource type="Texture2D" uid="uid://dx8asttvrgjfi" path="res://Import/fume3.png" id="14_1jqw6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oncdd"]
 animations = [{
@@ -33,6 +37,195 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_fet1e"]
+resource_name = "Fumé1"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.7, 2.1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.510921, 0.510839, 0.511381]
+}
+
+[sub_resource type="Animation" id="Animation_kttgs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.510921]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aerp6"]
+_data = {
+"Fumé1": SubResource("Animation_fet1e"),
+"RESET": SubResource("Animation_kttgs")
+}
+
+[sub_resource type="Animation" id="Animation_j0a3w"]
+resource_name = "fume2"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-0.660363, -0.660363, 0.132645, 0.132645]
+}
+
+[sub_resource type="Animation" id="Animation_0d8qs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.660363]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s0n8r"]
+_data = {
+"RESET": SubResource("Animation_0d8qs"),
+"fume2": SubResource("Animation_j0a3w")
+}
+
+[sub_resource type="Animation" id="Animation_my2t6"]
+resource_name = "Fume3"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 2.2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.526854, -0.526854]
+}
+
+[sub_resource type="Animation" id="Animation_6jqn7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_blajd"]
+_data = {
+"Fume3": SubResource("Animation_my2t6"),
+"RESET": SubResource("Animation_6jqn7")
+}
+
+[sub_resource type="Animation" id="Animation_qqjjy"]
+resource_name = "Fume4"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.11702, 1.11702, 0.520111, 0.520111]
+}
+
+[sub_resource type="Animation" id="Animation_7ry4b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.11702]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8dwi3"]
+_data = {
+"Fume4": SubResource("Animation_qqjjy"),
+"RESET": SubResource("Animation_7ry4b")
+}
+
+[sub_resource type="Animation" id="Animation_84vs2"]
+resource_name = "burgir"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.00179, 1.00179), Vector2(1.2328, 1.2328)]
+}
+
+[sub_resource type="Animation" id="Animation_m6qvc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.00179, 1.00179)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_86fx8"]
+_data = {
+"RESET": SubResource("Animation_m6qvc"),
+"burgir": SubResource("Animation_84vs2")
+}
 
 [node name="Four" type="Node2D" node_paths=PackedStringArray("anim")]
 script = ExtResource("7_n75fl")
@@ -68,3 +261,64 @@ stream = ExtResource("9_7us75")
 
 [node name="fourding" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_s4cm0")
+
+[node name="Fume" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(878, 232)
+rotation = -0.510921
+texture = ExtResource("11_kmpk3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fume"]
+libraries = {
+"": SubResource("AnimationLibrary_aerp6")
+}
+autoplay = "Fumé1"
+
+[node name="Fume2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(381, 219)
+rotation = -0.660363
+scale = Vector2(0.545691, 0.545691)
+texture = ExtResource("13_h0bfb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fume2"]
+libraries = {
+"": SubResource("AnimationLibrary_s0n8r")
+}
+autoplay = "fume2"
+
+[node name="Fume3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(243, 383)
+texture = ExtResource("14_1jqw6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fume3"]
+libraries = {
+"": SubResource("AnimationLibrary_blajd")
+}
+autoplay = "Fume3"
+
+[node name="Fume4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(899, 501)
+rotation = 1.11702
+scale = Vector2(-0.782436, 0.824657)
+texture = ExtResource("14_1jqw6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fume4"]
+libraries = {
+"": SubResource("AnimationLibrary_8dwi3")
+}
+autoplay = "Fume4"
+
+[node name="Burger" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(580, 479)
+scale = Vector2(1.00179, 1.00179)
+texture = ExtResource("12_d60kh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Burger"]
+libraries = {
+"": SubResource("AnimationLibrary_86fx8")
+}
+autoplay = "burgir"
