@@ -101,7 +101,6 @@ scale = Vector2(0.4, 0.4)
 
 [node name="Mouche2" parent="." instance=ExtResource("4_ltxep")]
 position = Vector2(3349.62, 2967.5)
-scale = Vector2(0.504762, 0.504762)
 
 [node name="Mouche3" parent="." instance=ExtResource("4_ltxep")]
 position = Vector2(2235.79, 4357.76)
@@ -109,7 +108,6 @@ scale = Vector2(0.4, 0.4)
 
 [node name="Mouche4" parent="." instance=ExtResource("4_ltxep")]
 position = Vector2(8292.75, 2861.81)
-scale = Vector2(0.504762, 0.504762)
 
 [node name="Splashmouche" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_ay2k6")

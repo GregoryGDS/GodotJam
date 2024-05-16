@@ -136,7 +136,7 @@ texture = ExtResource("2_owcg3")
 [node name="Lifes" type="Node2D" parent="."]
 
 [node name="Heart1" type="Sprite2D" parent="Lifes"]
-position = Vector2(350, 466)
+position = Vector2(373, 468)
 rotation = 0.350811
 scale = Vector2(1.50732, 1.50732)
 texture = ExtResource("3_g5q62")

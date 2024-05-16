@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://db6crh86yecq1" path="res://scenes_prefabs/GenerateEraser.tscn" id="2_2n85x"]
 [ext_resource type="PackedScene" uid="uid://noawj26u85mq" path="res://scenes_prefabs/menu_fin_test.tscn" id="2_4lylk"]
 [ext_resource type="PackedScene" uid="uid://o77j6cwl7spe" path="res://scenes_prefabs/transition.tscn" id="3_e5yox"]
-[ext_resource type="PackedScene" uid="uid://r7tujup2txd3" path="res://scenes_prefabs/Levels/01_Marine et JL.tscn" id="3_khka3"]
+[ext_resource type="PackedScene" uid="uid://csnw27euohqsk" path="res://scenes_prefabs/Levels/01_Marine et JL.tscn" id="3_khka3"]
 [ext_resource type="PackedScene" uid="uid://b1uv0obf6ba27" path="res://scenes_prefabs/LD/anim_line_erase.tscn" id="7_ywbm8"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_k7n81"]
@@ -26,6 +26,7 @@ offset_bottom = 648.0
 texture = SubResource("ViewportTexture_k7n81")
 
 [node name="01" parent="TextureRectMask" instance=ExtResource("3_khka3")]
+position = Vector2(3, 0)
 
 [node name="Sample - niveau à cacher" parent="TextureRectMask" instance=ExtResource("1_n5pfr")]
 visible = false
@@ -55,7 +56,7 @@ render_target_update_mode = 4
 [node name="animLineErase" parent="." instance=ExtResource("7_ywbm8")]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 8.0
+wait_time = 5.0
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

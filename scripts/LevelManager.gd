@@ -43,10 +43,7 @@ func _process(_delta):
 
 	if screen:
 		startTimer()
-		print("-----START SCREEN-----")
-		print(timerScreen.time_left)
-
-
+		#print(timerScreen.time_left)
 
 func randomScene():
 	var random = tscn_files.pick_random()
@@ -74,6 +71,7 @@ func randomScene():
 		
 	#charge la scene
 	var new_scene:Node2D = load(cheminLV).instantiate()
+	print("-----Laod stage-----")
 	new_scene.win.connect(onWin)
 	new_scene.loose.connect(onLoose)
 	#pattern observer
@@ -97,11 +95,11 @@ func onWin():
 func onLoose():
 	print("LOOSE LEVELS MANAGER")
 	transition.setNbLifeRemind() # -1
-	if transition.nbLifeCurrent > 0:
+	if transition.nbLifeCurrent <= 0:
 		print("-----GAME OVER-----")
-		scene___trail_eraser.StartAnim()
-		anim_line_erase.start()
-		screen = true
+	scene___trail_eraser.StartAnim()
+	anim_line_erase.start()
+	screen = true
 	pass
 
 func setTransition():
@@ -114,6 +112,7 @@ func startTimer():
 	if not timerScreen.is_stopped():
 		return
 	timerScreen.start()
+	print("-----START SCREEN-----")
 
 func _on_timer_timeout():
 	scene___trail_eraser.line_2d.viderLine()
