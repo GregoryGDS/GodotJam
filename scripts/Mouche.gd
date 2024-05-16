@@ -1,10 +1,10 @@
 extends Area2D
 
 # Charger le préfabriqué de l'objet à faire apparaître
-@export var new_object_prefab = preload("res://scenes_prefabs/mouchepaf.tscn")
 @export var rangeRadius: float = 30
 @export var moveSpeed: float = 100.0
 @export var moveRange: Rect2 = Rect2(Vector2(-200, -200), Vector2(400, 400))
+@onready var lvl_02_mouche = $".."
 
 # Déclaration des variables pour stocker les références aux sprites
 var disabled_sprite = null
@@ -19,37 +19,36 @@ func _ready():
 	generateNewTarget()
 
 func _on_mouse_entered():
-	print("baba")
-	if Input.is_action_just_pressed("ClicLeft"):
-		print("click dans mouche tamere")
-		print(get_local_mouse_position())
+	print("mouse enter")
+	#if Input.is_action_just_pressed("ClicLeft"):
+		#print(get_local_mouse_position())
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		print("Mouse Click/Unclick at: ", event.position)
-		print("CLICK JPP")
 		
 		var object_global_position = global_position # La position globale de votre objet
 		var distance = object_global_position.distance_to(event.position)
-		
-		if distance <= rangeRadius:
-			print("Le clic est à l'intérieur du rayon.")
-			$AileDroite.visible = false
-			$AileGauche.visible = false
-			$Tete.visible = false
-			
-			print("Sprite désactivé.")
-			# Activer les nouveaux sprites
-			$Mouchepaf.visible = true
-			print("Sprites activés.")
-			dead = true
-			print(dead)
-		else:
-			print("Le clic est à l'extérieur du rayon.")
-			$AileDroite.visible = true
-			$AileGauche.visible = true
-			$Tete.visible = true
-			$Mouchepaf.visible = false
+		if !lvl_02_mouche.isStop:
+			if distance <= rangeRadius:
+				lvl_02_mouche.isFinish = true;
+				print("Le clic est à l'intérieur du rayon.")
+				$AileDroite.visible = false
+				$AileGauche.visible = false
+				$Tete.visible = false
+				
+				print("Sprite désactivé.")
+				# Activer les nouveaux sprites
+				$Mouchepaf.visible = true
+				print("Sprites activés.")
+				dead = true
+				print(dead)
+			else:
+				print("Le clic est à l'extérieur du rayon.")
+				$AileDroite.visible = true
+				$AileGauche.visible = true
+				$Tete.visible = true
+				$Mouchepaf.visible = false
 
 func _process(delta):
 	if (!dead):

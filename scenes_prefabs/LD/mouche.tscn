@@ -1,0 +1,115 @@
+[gd_scene load_steps=10 format=3 uid="uid://botv0eanwvt3s"]
+
+[ext_resource type="Script" path="res://scripts/Mouche.gd" id="1_tkbk1"]
+[ext_resource type="Texture2D" uid="uid://bbj0760gudq4g" path="res://Import/aile gauche.png" id="2_fke2p"]
+[ext_resource type="Texture2D" uid="uid://qpfy2vhps6tv" path="res://Import/tete.png" id="3_w2dn2"]
+[ext_resource type="Texture2D" uid="uid://bdw5olfm2h7vo" path="res://Import/aile droite.png" id="4_mapqr"]
+[ext_resource type="Texture2D" uid="uid://ctfckjub46kst" path="res://Import/mouchepaf.png" id="5_6a14f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w7go7"]
+radius = 125.0
+
+[sub_resource type="Animation" id="Animation_hsaqw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AileDroite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ss6p5"]
+resource_name = "mouche"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AileDroite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.261799, 0.523599]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.1309, -0.383972]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fiwm0"]
+_data = {
+"RESET": SubResource("Animation_hsaqw"),
+"mouche": SubResource("Animation_ss6p5")
+}
+
+[node name="Mouche" type="Area2D"]
+position = Vector2(6796.8, 1894.32)
+rotation = -2.01425
+scale = Vector2(0.504762, 0.504762)
+script = ExtResource("1_tkbk1")
+moveRange = Rect2(0, 500, 500, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(488.117, -89.1061)
+rotation = -0.383972
+scale = Vector2(7.57623, 7.57623)
+shape = SubResource("CircleShape2D_w7go7")
+
+[node name="AileGauche" type="Sprite2D" parent="."]
+position = Vector2(442.331, -350.817)
+scale = Vector2(0.978684, 0.978684)
+texture = ExtResource("2_fke2p")
+
+[node name="Tete" type="Sprite2D" parent="."]
+position = Vector2(-0.00146484, 0)
+texture = ExtResource("3_w2dn2")
+
+[node name="AileDroite" type="Sprite2D" parent="."]
+position = Vector2(594.861, 152.53)
+scale = Vector2(0.800381, 0.800381)
+texture = ExtResource("4_mapqr")
+
+[node name="Mouchepaf" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(232.422, -264.061)
+rotation = 2.01425
+scale = Vector2(1.98113, 1.98113)
+texture = ExtResource("5_6a14f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AileGauche")
+libraries = {
+"": SubResource("AnimationLibrary_fiwm0")
+}
+autoplay = "mouche"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

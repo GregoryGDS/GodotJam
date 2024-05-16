@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c8amldnt56g11"]
+[gd_scene load_steps=17 format=3 uid="uid://c8amldnt56g11"]
 
 [ext_resource type="Script" path="res://scripts/ForLevels/Manager/02Manager.gd" id="1_abmvw"]
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_de2ut"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://7fu6exinieh0" path="res://scenes_prefabs/LD/jauge_timer.tscn" id="2_d4ys5"]
 [ext_resource type="Texture2D" uid="uid://bbj0760gudq4g" path="res://Import/aile gauche.png" id="3_ae5dn"]
 [ext_resource type="Texture2D" uid="uid://qpfy2vhps6tv" path="res://Import/tete.png" id="4_208n2"]
+[ext_resource type="PackedScene" uid="uid://botv0eanwvt3s" path="res://scenes_prefabs/LD/mouche.tscn" id="4_ltxep"]
 [ext_resource type="Texture2D" uid="uid://bdw5olfm2h7vo" path="res://Import/aile droite.png" id="5_7sbhy"]
 [ext_resource type="Texture2D" uid="uid://ctfckjub46kst" path="res://Import/mouchepaf.png" id="6_ivkdg"]
 [ext_resource type="AudioStream" uid="uid://bj7ash8xg6vx" path="res://sounds/FlySplash_Sound.wav" id="7_ay2k6"]
@@ -95,48 +96,32 @@ limit_left = 1
 position = Vector2(162.603, 178.863)
 initTimer = 3.0
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(6796.8, 1894.32)
-rotation = -2.01425
+[node name="Mouche" parent="." instance=ExtResource("4_ltxep")]
+scale = Vector2(0.4, 0.4)
+
+[node name="Mouche2" parent="." instance=ExtResource("4_ltxep")]
+position = Vector2(3349.62, 2967.5)
 scale = Vector2(0.504762, 0.504762)
-script = ExtResource("2_ao8gr")
-moveRange = Rect2(0, 500, 500, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(488.117, -89.1061)
-rotation = -0.383972
-scale = Vector2(7.57623, 7.57623)
-shape = SubResource("CircleShape2D_w7go7")
+[node name="Mouche3" parent="." instance=ExtResource("4_ltxep")]
+position = Vector2(2235.79, 4357.76)
+scale = Vector2(0.4, 0.4)
 
-[node name="AileGauche" type="Sprite2D" parent="Area2D"]
-position = Vector2(442.331, -350.817)
-scale = Vector2(0.978684, 0.978684)
-texture = ExtResource("3_ae5dn")
+[node name="Mouche4" parent="." instance=ExtResource("4_ltxep")]
+position = Vector2(8292.75, 2861.81)
+scale = Vector2(0.504762, 0.504762)
 
-[node name="Tete" type="Sprite2D" parent="Area2D"]
-position = Vector2(-0.00146484, 0)
-texture = ExtResource("4_208n2")
+[node name="Splashmouche" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ay2k6")
 
-[node name="AileDroite" type="Sprite2D" parent="Area2D"]
-position = Vector2(594.861, 152.53)
-scale = Vector2(0.800381, 0.800381)
-texture = ExtResource("5_7sbhy")
+[node name="tapette" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_0x7gn")
 
-[node name="Mouchepaf" type="Sprite2D" parent="Area2D"]
-visible = false
-position = Vector2(232.422, -264.061)
-rotation = 2.01425
-scale = Vector2(1.98113, 1.98113)
-texture = ExtResource("6_ivkdg")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
-root_node = NodePath("../AileGauche")
-libraries = {
-"": SubResource("AnimationLibrary_fiwm0")
-}
-autoplay = "mouche"
+[node name="fly" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_wetm1")
 
 [node name="Area2D3" type="Area2D" parent="."]
+visible = false
 position = Vector2(1130.09, 4341.5)
 rotation = -2.01425
 scale = Vector2(0.504762, 0.504762)
@@ -178,6 +163,7 @@ libraries = {
 autoplay = "mouche"
 
 [node name="Area2D4" type="Area2D" parent="."]
+visible = false
 position = Vector2(4829.31, 4268.33)
 rotation = -2.01425
 scale = Vector2(0.37517, 0.37517)
@@ -219,6 +205,7 @@ libraries = {
 autoplay = "mouche"
 
 [node name="Area2D5" type="Area2D" parent="."]
+visible = false
 position = Vector2(3056.94, 1691.07)
 rotation = -2.01425
 scale = Vector2(0.394995, 0.394995)
@@ -259,16 +246,6 @@ libraries = {
 }
 autoplay = "mouche"
 
-[node name="Splashmouche" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_ay2k6")
-
-[node name="tapette" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_0x7gn")
-
-[node name="fly" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_wetm1")
-
-[connection signal="mouse_entered" from="Area2D" to="Area2D" method="_on_mouse_entered"]
 [connection signal="mouse_entered" from="Area2D3" to="Area2D3" method="_on_mouse_entered"]
 [connection signal="mouse_entered" from="Area2D4" to="Area2D4" method="_on_mouse_entered"]
 [connection signal="mouse_entered" from="Area2D5" to="Area2D5" method="_on_mouse_entered"]
