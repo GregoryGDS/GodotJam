@@ -1,7 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://ckicg6faf2uat"]
+[gd_scene load_steps=17 format=3 uid="uid://ckicg6faf2uat"]
 
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_a0hgf"]
-[ext_resource type="FontFile" uid="uid://dx7lx5uteafob" path="res://Chantal Bold.ttf" id="1_ieolf"]
 [ext_resource type="Texture2D" uid="uid://dsgcllesgowb1" path="res://Import/caisse seule.png" id="2_6ygcq"]
 [ext_resource type="Texture2D" uid="uid://bjgntomj0j6x" path="res://Import/tiket.png" id="3_vqo3d"]
 [ext_resource type="Texture2D" uid="uid://c0mq02ist4xb5" path="res://Import/carte bleu.png" id="4_hmnaj"]
@@ -98,6 +97,15 @@ size = Vector2(139, 74)
 
 [node name="cb" type="Node2D"]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(575, 323)
+
+[node name="Label" type="Label" parent="Camera2D"]
+offset_left = -374.0
+offset_top = -26.0
+offset_right = -276.0
+offset_bottom = 41.0
+
 [node name="Page" type="Sprite2D" parent="."]
 position = Vector2(571.524, 357.147)
 scale = Vector2(2.93667, 2.93667)
@@ -153,7 +161,7 @@ piste = NodePath("../CarteBleu/piste_magnetique")
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tpe/tpe_haut"]
-position = Vector2(37, -73)
+position = Vector2(63, -92)
 shape = SubResource("RectangleShape2D_upf7x")
 
 [node name="tpe_bas" type="Area2D" parent="Tpe"]
@@ -163,18 +171,6 @@ input_pickable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tpe/tpe_bas"]
 position = Vector2(63, -92)
 shape = SubResource("RectangleShape2D_upf7x")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(575, 323)
-
-[node name="Label" type="Label" parent="Camera2D"]
-offset_left = -368.0
-offset_top = -16.0
-offset_right = -134.0
-offset_bottom = 61.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_ieolf")
-theme_override_font_sizes/font_size = 17
 
 [connection signal="mouse_entered" from="CarteBleu/Area2D" to="CarteBleu" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="CarteBleu/Area2D" to="CarteBleu" method="_on_area_2d_mouse_exited"]
