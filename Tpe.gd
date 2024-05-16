@@ -1,19 +1,20 @@
 extends Sprite2D
 @onready var label = $"../Camera2D/Label"
 @onready var tpe_anim = $"../TpeAnim"
-
-
+@onready var audio_Correct = $"../CardCorrect"
+@onready var audio_Uncorrect = $"../CardUncorrect"
 @export var piste: Area2D
 var enter_time: float
 
-var TimeMax_accepted : float =50
-var TimeMin_accepted: float = 100
+var TimeMax_accepted : float =100
+var TimeMin_accepted: float = 50
 
 func _on_tpe_haut_area_entered(area):
 	if area == piste:
 		print("let's go")
 		# vérifier que area == piste
 		enter_time = Time.get_ticks_msec()
+		
 
 
 
@@ -27,14 +28,22 @@ func _on_tpe_bas_area_entered(area):
 		print(enter_time, "  |  ",  bottom_time , "  |  ", temps_trajet)
 		
 		if temps_trajet > TimeMin_accepted :
-			label.set_text("too slow")
-			tpe_anim.set_frame(0)
-		elif   temps_trajet < TimeMax_accepted:
-			label.set_text("too slow")
-			tpe_anim.set_frame(0)
+			if temps_trajet < TimeMax_accepted :
+				label.set_text("validate")
+				print("validated")
+				tpe_anim.set_frame(1)
+				audio_Correct.play()
+			else :
+				label.set_text("too Slow")
+				tpe_anim.set_frame(0)
+				print("slow")
+				audio_Uncorrect.play()
 		else: 
-			label.set_text("validate")
-			tpe_anim.set_frame(1)
+			print("fast")
+			label.set_text("too fast")
+			tpe_anim.set_frame(0)
+			audio_Uncorrect.play()
+			
 		enter_time =  0
 		bottom_time = 0
 			
