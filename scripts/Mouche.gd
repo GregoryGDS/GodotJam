@@ -14,7 +14,6 @@ var  dead : bool = false
 
 func _ready():
 	# Récupérer les références aux sprites
-	
 	set_process(true)
 	generateNewTarget()
 

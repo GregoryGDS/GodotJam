@@ -35,9 +35,7 @@ func _process(delta):
 	
 	proportion()
 	
-	if timer.is_stopped():
-		GlobalManager.timerIsStop = true
-		#tween.tween_property($Sprite2D, "size:y", Vector2(2,2),1).set_trans(Tween.TRANS_ELASTIC)
+	#tween.tween_property($Sprite2D, "size:y", Vector2(2,2),1).set_trans(Tween.TRANS_ELASTIC)
 	
 	
 	pass
@@ -50,3 +48,7 @@ func proportion():
 	color_rect.size.y = initial_height * proportion
 	
 	eraser.position.y = init_PosY * (1+proportion)
+
+
+func _on_timer_timeout():
+	GlobalManager.timerIsStop = true

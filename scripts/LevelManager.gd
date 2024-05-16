@@ -5,11 +5,13 @@ var tscn_files:Array
 var numLvl
 var nameLvl
 var numStage = 0
+var screen: bool = false
 
 @export var cheminDos:String;
 @onready var texture_rect_mask = $TextureRectMask
 @onready var menu_fin = $MenuFin # script sur noeud racine
 @onready var transition = $Transition
+@onready var timerScreen = $Timer
 
 @onready var scene___trail_eraser = $"CanvasLayer- génération du mask/SubViewportContainer/SubViewport - texture substrat dynamique/scene - TrailEraser"
 @onready var anim_line_erase = $animLineErase
@@ -39,8 +41,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 
-	
-	pass
+	if screen:
+		startTimer()
+		print("-----START SCREEN-----")
+		print(timerScreen.time_left)
+
 
 
 func randomScene():
@@ -86,17 +91,33 @@ func onWin():
 	print("WIN LEVELS MANAGER")
 	scene___trail_eraser.StartAnim() # clear ligne et anim gomme 
 	anim_line_erase.start() # anim gomme
+	screen = true
 	pass
 	
 func onLoose():
 	print("LOOSE LEVELS MANAGER")
 	transition.setNbLifeRemind() # -1
 	if transition.nbLifeCurrent > 0:
+		print("-----GAME OVER-----")
 		scene___trail_eraser.StartAnim()
 		anim_line_erase.start()
+		screen = true
 	pass
 
 func setTransition():
 	numStage += 1
 	transition.setNumStage(str(numStage))
 	transition.setNameLevel(nameLvl)
+
+
+func startTimer():
+	if not timerScreen.is_stopped():
+		return
+	timerScreen.start()
+
+func _on_timer_timeout():
+	scene___trail_eraser.line_2d.viderLine()
+	screen = false
+	print("-----END SCREEN-----")
+	randomScene()
+	setTransition()
