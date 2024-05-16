@@ -16,20 +16,20 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if (Input.is_action_just_pressed("moveUPLeft") || Input.is_action_just_pressed("moveUPRight")) && !firstMove:
+	if (Input.is_action_just_pressed("leftclick") || Input.is_action_just_pressed("rightclick")) && !firstMove:
 		firstMove = true
 		animation = "move"
 		audio_stream_player.play()
 	
-	if Input.is_action_just_pressed("moveUPLeft") && lastAction!="moveUPLeft" && !lvl_01_manager.isStop:
+	if Input.is_action_just_pressed("leftclick") && lastAction!="leftclick" && !lvl_01_manager.isStop:
 		transform.origin.y -= espaceUp;
-		lastAction="moveUPLeft";
+		lastAction="leftclick";
 		update_animation();
 		audio_stream_player.play()
 
-	if Input.is_action_just_pressed("moveUPRight") && lastAction!="moveUPRight" && !lvl_01_manager.isStop:
+	if Input.is_action_just_pressed("rightclick") && lastAction!="rightclick" && !lvl_01_manager.isStop:
 		transform.origin.y -= espaceUp;
-		lastAction="moveUPRight";
+		lastAction="rightclick";
 		update_animation();
 		audio_stream_player.play()
 		
