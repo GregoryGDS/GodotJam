@@ -93,7 +93,6 @@ limit_left = 1
 
 [node name="JaugeTimer" parent="." instance=ExtResource("2_d4ys5")]
 position = Vector2(162.603, 178.863)
-scale = Vector2(8.13, 8.13)
 initTimer = 3.0
 
 [node name="Area2D" type="Area2D" parent="."]
