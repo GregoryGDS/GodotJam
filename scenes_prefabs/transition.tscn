@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cfjjxkda6koki" path="res://Import/heart1.png" id="3_g5q62"]
 [ext_resource type="Texture2D" uid="uid://djdwsb2hchpwd" path="res://Import/heart 2.png" id="4_isr0j"]
 [ext_resource type="Texture2D" uid="uid://c4avtm2btvpo7" path="res://Import/heart 3.png" id="5_ql7xj"]
-[ext_resource type="Texture2D" uid="uid://74sd76iiejwn" path="res://Import/heart.png" id="6_4tchq"]
+[ext_resource type="Texture2D" uid="uid://dwcpe5jd3c23w" path="res://Import/heart.png" id="6_4tchq"]
 [ext_resource type="FontFile" uid="uid://dx7lx5uteafob" path="res://Chantal Bold.ttf" id="8_1stw4"]
 
 [sub_resource type="Animation" id="Animation_cdqc5"]
@@ -110,7 +110,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1.85066, 1.85066), Vector2(1.90234, 1.90234)]
+"values": [Vector2(0.91822, 0.91822), Vector2(0.91822, 0.91822)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2xvg5"]
@@ -136,7 +136,7 @@ texture = ExtResource("2_owcg3")
 [node name="Lifes" type="Node2D" parent="."]
 
 [node name="Heart1" type="Sprite2D" parent="Lifes"]
-position = Vector2(350, 466)
+position = Vector2(378, 489)
 rotation = 0.350811
 scale = Vector2(1.50732, 1.50732)
 texture = ExtResource("3_g5q62")
@@ -173,7 +173,7 @@ autoplay = "heart bouncing"
 speed_scale = 0.53
 
 [node name="Heart" type="Sprite2D" parent="."]
-position = Vector2(597, 480)
+position = Vector2(606.808, 496.02)
 scale = Vector2(1.85066, 1.85066)
 texture = ExtResource("6_4tchq")
 
