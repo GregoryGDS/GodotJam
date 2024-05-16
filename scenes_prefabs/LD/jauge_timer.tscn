@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://7fu6exinieh0"]
+
+[ext_resource type="Script" path="res://scripts/ForLevels/Manager/JaugeTimerController.gd" id="1_6kii2"]
+[ext_resource type="Texture2D" uid="uid://dbvhegtjghskb" path="res://Import/jaugeFichier 28.png" id="1_7qd8l"]
+[ext_resource type="Texture2D" uid="uid://ck5cuwvyw2bba" path="res://Import/eraser.png" id="2_xk7ex"]
+
+[node name="JaugeTimer" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+clip_children = 1
+offset_left = 2.0
+offset_top = 87.0
+offset_right = 131.0
+offset_bottom = 552.0
+script = ExtResource("1_6kii2")
+
+[node name="JaugeFichier28" type="Sprite2D" parent="ColorRect"]
+position = Vector2(67, 241)
+rotation = -0.0373028
+scale = Vector2(0.150585, 0.150585)
+texture = ExtResource("1_7qd8l")
+
+[node name="Eraser" type="Sprite2D" parent="."]
+position = Vector2(102, 89)
+scale = Vector2(0.107201, 0.107201)
+texture = ExtResource("2_xk7ex")

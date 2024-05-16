@@ -50,5 +50,4 @@ script = ExtResource("2_heg4m")
 libraries = {
 "": SubResource("AnimationLibrary_v5whl")
 }
-autoplay = "moveErase"
 speed_scale = 2.0

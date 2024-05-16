@@ -9,6 +9,7 @@ var isStop:bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GlobalManager.timerGlobal = timer
 	pass # Replace with function body.
 
 
@@ -18,7 +19,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("testTimer"):
 		timer -= 1
 	
-	if timer < 0:
+	if GlobalManager.timerGlobal < 0:
 		isStop = true
 		#son echec
 	

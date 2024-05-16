@@ -27,7 +27,7 @@ func setNumStage(name):
 	num_stage.text = name
 
 func setNameLevel(name):
-	name_level.text  = name
+	name_level.text = name
 
 func setNbLifeRemind():
 	nbLifeCurrent -= 1

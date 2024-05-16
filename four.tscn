@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://wueiqkuckerf"]
+[gd_scene load_steps=12 format=3 uid="uid://wueiqkuckerf"]
 
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_mmv0b"]
 [ext_resource type="Texture2D" uid="uid://cw5xvtbluj5td" path="res://Import/four1.png" id="2_rtif8"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bf480n4qwhrow" path="res://Import/four5.png" id="6_otrkl"]
 [ext_resource type="Script" path="res://scripts/TimerFour.gd" id="7_n75fl"]
 [ext_resource type="FontFile" uid="uid://dx7lx5uteafob" path="res://Chantal Bold.ttf" id="8_l1re8"]
+[ext_resource type="Texture2D" uid="uid://dbvhegtjghskb" path="res://Import/jaugeFichier 28.png" id="9_p53xf"]
+[ext_resource type="Texture2D" uid="uid://ck5cuwvyw2bba" path="res://Import/eraser.png" id="10_ag7dm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oncdd"]
 animations = [{
@@ -37,8 +39,8 @@ script = ExtResource("7_n75fl")
 anim = NodePath("SPRITEfour")
 
 [node name="Page" type="Sprite2D" parent="."]
-position = Vector2(574, 353)
-scale = Vector2(2.93145, 2.93145)
+position = Vector2(525.147, 322.25)
+scale = Vector2(3.17943, 3.17943)
 texture = ExtResource("1_mmv0b")
 
 [node name="SPRITEfour" type="AnimatedSprite2D" parent="."]
@@ -60,3 +62,16 @@ theme_override_fonts/font = ExtResource("8_l1re8")
 theme_override_font_sizes/font_size = 100
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="JaugeTimer" type="Node2D" parent="."]
+
+[node name="JaugeFichier28" type="Sprite2D" parent="JaugeTimer"]
+position = Vector2(69, 334)
+rotation = -0.0373028
+scale = Vector2(0.150585, 0.150585)
+texture = ExtResource("9_p53xf")
+
+[node name="Eraser" type="Sprite2D" parent="JaugeTimer"]
+position = Vector2(102, 89)
+scale = Vector2(0.107201, 0.107201)
+texture = ExtResource("10_ag7dm")
