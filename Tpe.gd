@@ -3,8 +3,11 @@ extends Sprite2D
 @onready var tpe_anim = $"../TpeAnim"
 @onready var audio_Correct = $"../CardCorrect"
 @onready var audio_Uncorrect = $"../CardUncorrect"
+@onready var lvl3_black_friday = $".."
+
 @export var piste: Area2D
 var enter_time: float
+
 
 var TimeMax_accepted : float =100
 var TimeMin_accepted: float = 50
@@ -26,23 +29,25 @@ func _on_tpe_bas_area_entered(area):
 		
 		
 		print(enter_time, "  |  ",  bottom_time , "  |  ", temps_trajet)
-		
-		if temps_trajet > TimeMin_accepted :
-			if temps_trajet < TimeMax_accepted :
-				label.set_text("validate")
-				print("validated")
-				tpe_anim.set_frame(1)
-				audio_Correct.play()
-			else :
-				label.set_text("too Slow")
+		if !lvl3_black_friday.isStop:
+			
+			if temps_trajet > TimeMin_accepted :
+				if temps_trajet < TimeMax_accepted :
+					label.set_text("validate")
+					print("validated")
+					lvl3_black_friday.isFinish = true
+					tpe_anim.set_frame(1)
+					audio_Correct.play()
+				else :
+					label.set_text("too Slow")
+					tpe_anim.set_frame(0)
+					print("slow")
+					audio_Uncorrect.play()
+			else: 
+				print("fast")
+				label.set_text("too fast")
 				tpe_anim.set_frame(0)
-				print("slow")
 				audio_Uncorrect.play()
-		else: 
-			print("fast")
-			label.set_text("too fast")
-			tpe_anim.set_frame(0)
-			audio_Uncorrect.play()
 			
 		enter_time =  0
 		bottom_time = 0

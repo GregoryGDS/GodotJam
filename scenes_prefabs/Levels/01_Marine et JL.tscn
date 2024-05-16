@@ -163,7 +163,7 @@ scale = Vector2(35.8633, 35.2907)
 texture = ExtResource("1_30nu5")
 
 [node name="JaugeTimer" parent="." instance=ExtResource("14_gfypi")]
-position = Vector2(146.341, 186.992)
+position = Vector2(145, 190)
 
 [node name="Tree" type="Sprite2D" parent="."]
 position = Vector2(4301.54, 1749.28)

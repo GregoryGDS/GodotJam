@@ -93,7 +93,7 @@ scale = Vector2(1, 1.01213)
 limit_left = 1
 
 [node name="JaugeTimer" parent="." instance=ExtResource("2_d4ys5")]
-position = Vector2(162.603, 178.863)
+position = Vector2(145, 190)
 initTimer = 3.0
 
 [node name="Mouche" parent="." instance=ExtResource("4_ltxep")]

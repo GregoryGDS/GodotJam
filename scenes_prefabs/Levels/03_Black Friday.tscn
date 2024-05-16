@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://ckicg6faf2uat"]
+[gd_scene load_steps=21 format=3 uid="uid://378w2oa5d4qm"]
 
+[ext_resource type="Script" path="res://scripts/ForLevels/Manager/03Manager.gd" id="1_6yk7b"]
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_a0hgf"]
 [ext_resource type="FontFile" uid="uid://dx7lx5uteafob" path="res://Chantal Bold.ttf" id="1_ieolf"]
 [ext_resource type="Texture2D" uid="uid://dsgcllesgowb1" path="res://Import/caisse seule.png" id="2_6ygcq"]
@@ -11,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cn53srfu5qslh" path="res://Import/tpe.png" id="7_mu36x"]
 [ext_resource type="Script" path="res://Tpe.gd" id="10_ho0ux"]
 [ext_resource type="AudioStream" uid="uid://rqy6bxkmb7bj" path="res://sounds/CardCorrect.wav" id="12_306da"]
+[ext_resource type="PackedScene" uid="uid://7fu6exinieh0" path="res://scenes_prefabs/LD/jauge_timer.tscn" id="12_vnvds"]
 
 [sub_resource type="Animation" id="Animation_2uv2d"]
 length = 2.0
@@ -85,12 +87,17 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upf7x"]
 size = Vector2(139, 74)
 
-[node name="cb" type="Node2D"]
+[node name="03_Black Friday" type="Node2D"]
+script = ExtResource("1_6yk7b")
 
 [node name="Page" type="Sprite2D" parent="."]
 position = Vector2(571.524, 357.147)
 scale = Vector2(2.93667, 2.93667)
 texture = ExtResource("1_a0hgf")
+
+[node name="JaugeTimer" parent="." instance=ExtResource("12_vnvds")]
+position = Vector2(55, 32)
+scale = Vector2(1, 1)
 
 [node name="CaisseSeule" type="Sprite2D" parent="."]
 position = Vector2(937, 216)
@@ -108,7 +115,7 @@ libraries = {
 autoplay = "ticket"
 
 [node name="CarteBleu" type="Sprite2D" parent="."]
-position = Vector2(620.5, 404)
+position = Vector2(665, 477)
 rotation = 1.55557
 texture = ExtResource("4_hmnaj")
 script = ExtResource("5_pf8ch")
@@ -127,14 +134,14 @@ position = Vector2(8.45575, -5.92297)
 shape = SubResource("RectangleShape2D_ohx2i")
 
 [node name="TpeAnim" type="AnimatedSprite2D" parent="."]
-position = Vector2(220.5, 239)
+position = Vector2(328.5, 285)
 sprite_frames = SubResource("SpriteFrames_djrpi")
 animation = &"tpe"
 frame = 1
 frame_progress = 0.622546
 
 [node name="Tpe" type="Sprite2D" parent="." node_paths=PackedStringArray("piste")]
-position = Vector2(251.5, 303)
+position = Vector2(359.5, 349)
 texture = ExtResource("7_mu36x")
 script = ExtResource("10_ho0ux")
 piste = NodePath("../CarteBleu/piste_magnetique")
@@ -158,13 +165,14 @@ shape = SubResource("RectangleShape2D_upf7x")
 position = Vector2(575, 323)
 
 [node name="Label" type="Label" parent="Camera2D"]
-offset_left = -393.5
-offset_top = -106.0
-offset_right = -159.5
-offset_bottom = -33.0
+offset_left = -273.0
+offset_top = -58.0
+offset_right = -39.0
+offset_bottom = 15.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_ieolf")
 theme_override_font_sizes/font_size = 17
+text = "test"
 metadata/_edit_use_anchors_ = true
 
 [node name="CardUncorrect" type="AudioStreamPlayer" parent="."]
