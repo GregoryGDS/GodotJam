@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://r7tujup2txd3"]
+[gd_scene load_steps=25 format=3 uid="uid://byk840nk4h1hi"]
 
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_30nu5"]
 [ext_resource type="Script" path="res://scripts/ForLevels/Manager/01Manager.gd" id="1_a46cv"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ce7gjnnf31er" path="res://Import/marine.png" id="9_fqbwm"]
 [ext_resource type="Texture2D" uid="uid://bg55sin7ttnby" path="res://Import/Feuille.png" id="9_ytcnj"]
 [ext_resource type="Texture2D" uid="uid://cs4t5l0itx6q2" path="res://Import/appel.png" id="11_xclbs"]
-[ext_resource type="AudioStream" uid="uid://cmv2ekhhpchaj" path="res://sounds/HitConcrete10.wav" id="13_p1ylt"]
+[ext_resource type="AudioStream" uid="uid://df8xe2sy3jbns" path="res://sounds/Echelle1.wav" id="13_v0aat"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s1kmu"]
 animations = [{
@@ -235,4 +235,4 @@ libraries = {
 autoplay = "Leaf2"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_p1ylt")
+stream = ExtResource("13_v0aat")
