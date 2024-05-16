@@ -8,9 +8,26 @@ extends Node2D
 @onready var Fume4 : Sprite2D = $Fume4
 @onready var audio_fourding = $fourding
 @onready var audio_fourcontinue = $fourcontinue
+@onready var jauge_timer = $JaugeTimer
+
 var random_time
+@export var min_time:float
+@export var max_time:float
+
+
+
+var isFinish:bool
+var isStop:bool
+var isLoose:bool
+
+signal win
+signal loose
 
 func _ready():
+	isFinish = false
+	isStop = false
+	isLoose = false
+	
 	# Définit la durée initiale du timer
 	randomize_timer()
 	audio_fourcontinue.play()
@@ -25,9 +42,9 @@ func _ready():
 
 func randomize_timer():
 	# Génère un nombre aléatoire entre 30 et 50 secondes
-	random_time = randi_range(5, 10)
-	$Timer.wait_time = random_time
-	$Timer.start()
+	random_time = randi_range(min_time, max_time)
+	#$Timer.wait_time = random_time
+	#$Timer.start()
 	
 	print(int(random_time * 0.8))
 	print(int(random_time * 0.5))
@@ -37,39 +54,60 @@ func randomize_timer():
 
 
 func _process(_delta):
-	$Camera2D/Label.set_text(str(int($Timer.time_left)))
-	update_animation()
-	if Input.is_action_pressed("leftclick"):
+	
+	#$Camera2D/Label.set_text(str(int(jauge_timer.timer.time_left)))
+	
+	if (isLoose && !isStop):
+		#jauge_timer.timer.stop()# à modif
+		print("-- ISLOOSE -- ")
+		isStop = true
+		loose.emit()
+		jauge_timer.timer.stop()
+	else:
+		update_animation()	
+	
+		if isFinish && !isStop:
+			isStop = true;
+			win.emit()
+			jauge_timer.timer.stop()
+			print("-- fini gagné -- ")
+			#son gg
+		elif (GlobalManager.timerIsStop && !isStop): # = timer fini donc stop
+			isStop = true
+			#loose.emit()
+			print("-- fini perdu timer -- ")
+	
+
+
+
+
+	if (!isStop && !isLoose):
+		if Input.is_action_pressed("leftclick"):
+			if anim.frame == 2 :
+				print("win")
+				isFinish = true
+				audio_fourding.play()
+				Burgir.visible=true
+				Fume.visible=false
+				Fume2.visible=false
+				Fume3.visible=false
+				Fume4.visible=false
+				
+			else:
+				isLoose = true
+				print ("lose")
+	
 		if anim.frame == 2 :
-			print("win")
-			audio_fourding.play()
-			Burgir.visible=true
-			Fume.visible=false
-			Fume2.visible=false
-			Fume3.visible=false
-			Fume4.visible=false
-			
-		else:
-			print ("lose")
-	
-	
-	
-	if anim.frame == 2 :
-		Fume.visible=true
-	
-	
-	if anim.frame==3 :
-		Fume3.visible=true
-		
-		
-	
-	if anim.frame == 4:
-		Fume4.visible=true
-		Fume2.visible=true
-	# Reste a faire : Détecter quand le joueur clique
-	# Vérifier si anime.frame == 2 (la frame verte), si c'est le cas
-	# on gagne, sinon on perd
+			Fume.visible=true
+		if anim.frame==3 :
+			Fume3.visible=true
+		if anim.frame == 4:
+			Fume4.visible=true
+			Fume2.visible=true
+		# Reste a faire : Détecter quand le joueur clique
+		# Vérifier si anime.frame == 2 (la frame verte), si c'est le cas
+		# on gagne, sinon on perd
 
 
 func update_animation():
-	anim.frame =  remap($Timer.time_left, 0, random_time, 5, 0)
+	anim.frame =  remap(jauge_timer.timer.time_left, 0, random_time, 5, 0)

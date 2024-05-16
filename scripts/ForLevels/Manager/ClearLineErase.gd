@@ -21,10 +21,3 @@ func StartAnim():
 func StopAnim():
 	animation_player.stop()
 	
-	
-
-
-func _on_animation_player_animation_finished(moveErase):
-	line_2d.position = Vector2(219,-288)
-	print("fini gomme")
-	pass # Replace with function body.
