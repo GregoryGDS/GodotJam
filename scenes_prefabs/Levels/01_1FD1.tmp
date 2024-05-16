@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://r7tujup2txd3"]
+[gd_scene load_steps=25 format=3 uid="uid://r7tujup2txd3"]
 
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_30nu5"]
 [ext_resource type="Script" path="res://scripts/ForLevels/Manager/01Manager.gd" id="1_a46cv"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://bg55sin7ttnby" path="res://Import/Feuille.png" id="9_ytcnj"]
 [ext_resource type="Texture2D" uid="uid://cs4t5l0itx6q2" path="res://Import/appel.png" id="11_xclbs"]
 [ext_resource type="AudioStream" uid="uid://cmv2ekhhpchaj" path="res://sounds/HitConcrete10.wav" id="13_p1ylt"]
-[ext_resource type="PackedScene" uid="uid://7fu6exinieh0" path="res://scenes_prefabs/LD/jauge_timer.tscn" id="14_gfypi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s1kmu"]
 animations = [{
@@ -156,15 +155,11 @@ _data = {
 [node name="Lvl01_Echelle" type="Node2D"]
 scale = Vector2(0.123, 0.123)
 script = ExtResource("1_a46cv")
-timer = 4.0
 
 [node name="Page" type="Sprite2D" parent="."]
 position = Vector2(5786.65, 1806.93)
 scale = Vector2(35.8633, 35.2907)
 texture = ExtResource("1_30nu5")
-
-[node name="JaugeTimer" parent="." instance=ExtResource("14_gfypi")]
-position = Vector2(146.341, 186.992)
 
 [node name="Tree" type="Sprite2D" parent="."]
 position = Vector2(4301.54, 1749.28)
@@ -241,5 +236,3 @@ autoplay = "Leaf2"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_p1ylt")
-
-[connection signal="area_entered" from="Area2D - fin LV" to="." method="_on_area_2d__fin_lv_area_entered"]

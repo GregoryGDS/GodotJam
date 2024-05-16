@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8amldnt56g11"]
+[gd_scene load_steps=12 format=3 uid="uid://c8amldnt56g11"]
 
+[ext_resource type="Script" path="res://scripts/ForLevels/Manager/02Manager.gd" id="1_abmvw"]
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_de2ut"]
 [ext_resource type="Script" path="res://scripts/Mouche.gd" id="2_ao8gr"]
 [ext_resource type="Texture2D" uid="uid://bbj0760gudq4g" path="res://Import/aile gauche.png" id="3_ae5dn"]
@@ -74,6 +75,7 @@ _data = {
 
 [node name="Lvl02_Mouche" type="Node2D"]
 scale = Vector2(0.122999, 0.122999)
+script = ExtResource("1_abmvw")
 
 [node name="Page" type="Sprite2D" parent="."]
 position = Vector2(4748, 2861.81)

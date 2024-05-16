@@ -4,22 +4,24 @@ var lvArray:Array
 var tscn_files:Array
 var numLvl
 var nameLvl
+var numStage = 0
 
 @export var cheminDos:String;
 @onready var texture_rect_mask = $TextureRectMask
 @onready var menu_fin = $MenuFin # script sur noeud racine
 @onready var transition = $Transition
 
+@onready var scene___trail_eraser = $"CanvasLayer- génération du mask/SubViewportContainer/SubViewport - texture substrat dynamique/scene - TrailEraser"
 @onready var anim_line_erase = $animLineErase
 
-const ANIM_LINE_ERASE = preload("res://scenes_prefabs/LD/anim_line_erase.tscn")
 
+signal clearLineErase
 #@export var nbLifeCurrent:int = 3;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	lvArray = DirAccess.get_files_at(cheminDos);
-	
+	# reset trail gomme => script à la racine
 	tscn_files = []
 
 	for file in lvArray:
@@ -27,16 +29,16 @@ func _ready():
 			tscn_files.append(file)
 		
 	randomScene()
+	setTransition()
 	
-	transition.setNumStage(numLvl)
-	transition.setNameLevel(nameLvl)
+	#transition.setNumStage(str(numStage))
+	#transition.setNameLevel(nameLvl)
 	
 	#ANIM_LINE_ERASE.get_script().stop()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Input.is_action_just_pressed("testTimer"):
-		transition.setNbLifeRemind()
+
 	
 	pass
 
@@ -51,10 +53,10 @@ func randomScene():
 	#clear parent child
 	#%texture_rect_mask.add_child(scene.Instantiate())
 	
-	print(cheminDos)
-	print(random)
-	print(cheminLV)
-	print(tscn_files)
+	#print(cheminDos)
+	#print(random)
+	#print(cheminLV)
+	#print(tscn_files)
 
 	var splitArray = random.split("_")
 	numLvl = splitArray[0]
@@ -67,6 +69,10 @@ func randomScene():
 		
 	#charge la scene
 	var new_scene:Node2D = load(cheminLV).instantiate()
+	new_scene.win.connect(onWin)
+	new_scene.loose.connect(onLoose)
+	#pattern observer
+	
 	if new_scene:
 		texture_rect_mask.add_child(new_scene)
 		#print("etat level : ", new_scene.get_script())
@@ -76,3 +82,21 @@ func randomScene():
 	else:
 		print("Erreur : Impossible de charger la scène à partir de ", cheminLV)
 
+func onWin():
+	print("WIN LEVELS MANAGER")
+	scene___trail_eraser.StartAnim() # clear ligne et anim gomme 
+	anim_line_erase.start() # anim gomme
+	pass
+	
+func onLoose():
+	print("LOOSE LEVELS MANAGER")
+	transition.setNbLifeRemind() # -1
+	if transition.nbLifeCurrent > 0:
+		scene___trail_eraser.StartAnim()
+		anim_line_erase.start()
+	pass
+
+func setTransition():
+	numStage += 1
+	transition.setNumStage(str(numStage))
+	transition.setNameLevel(nameLvl)

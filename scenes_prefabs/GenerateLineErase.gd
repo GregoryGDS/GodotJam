@@ -9,8 +9,7 @@ var point = Vector2();
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#var animation_player = $AnimationPlayer
-		
-	print("ALED BODEL")
+	
 	#%animation_player.play("DrawLine")
 	
 	add_point(global_transform.affine_inverse() * baseline.global_position)
@@ -24,5 +23,6 @@ func _process(delta):
 	#point = global_position
 	add_point(point)
 
-
+func viderLine():
+	clear_points()
 

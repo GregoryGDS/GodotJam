@@ -1,12 +1,14 @@
-extends Node
+extends Node2D
 
-var isFinish:bool
-var timerGlobal:float
-var win:bool
-var loose:bool
+
+@export var timer:float
+
+signal win
+signal loose
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GlobalManager.timerGlobal = timer
 	pass # Replace with function body.
 
 
