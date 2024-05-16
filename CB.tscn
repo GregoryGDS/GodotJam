@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://Tpe.gd" id="10_ho0ux"]
 
 [sub_resource type="Animation" id="Animation_2uv2d"]
-length = 0.001
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -20,22 +20,10 @@ tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1, 0.318182)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(958, 153)]
+"values": [Vector2(1, 0.318182), Vector2(1, 0.818182)]
 }
 
 [sub_resource type="Animation" id="Animation_7x7ti"]
@@ -108,7 +96,7 @@ position = Vector2(937, 216)
 texture = ExtResource("2_6ygcq")
 
 [node name="Tiket" type="Sprite2D" parent="."]
-position = Vector2(958, 153)
+position = Vector2(960.301, 147.478)
 scale = Vector2(1, 0.318182)
 texture = ExtResource("3_vqo3d")
 
@@ -116,6 +104,7 @@ texture = ExtResource("3_vqo3d")
 libraries = {
 "": SubResource("AnimationLibrary_2a0s2")
 }
+autoplay = "ticket"
 
 [node name="CarteBleu" type="Sprite2D" parent="."]
 position = Vector2(650, 496)
@@ -144,7 +133,7 @@ frame = 1
 frame_progress = 0.622546
 
 [node name="Tpe" type="Sprite2D" parent="." node_paths=PackedStringArray("piste")]
-position = Vector2(281, 399)
+position = Vector2(281, 395)
 texture = ExtResource("7_mu36x")
 script = ExtResource("10_ho0ux")
 piste = NodePath("../CarteBleu/piste_magnetique")
@@ -168,10 +157,10 @@ shape = SubResource("RectangleShape2D_upf7x")
 position = Vector2(575, 323)
 
 [node name="Label" type="Label" parent="Camera2D"]
-offset_left = -368.0
-offset_top = -16.0
-offset_right = -134.0
-offset_bottom = 61.0
+offset_left = -364.0
+offset_top = -14.0
+offset_right = -130.0
+offset_bottom = 59.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_ieolf")
 theme_override_font_sizes/font_size = 17
