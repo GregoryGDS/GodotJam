@@ -1,0 +1,128 @@
+[gd_scene load_steps=12 format=3 uid="uid://dqcbcpavf0ns2"]
+
+[ext_resource type="Texture2D" uid="uid://lv3bgfh2uxev" path="res://Import/couverture book.png" id="1_250gt"]
+[ext_resource type="Texture2D" uid="uid://ei8r8t1u7ybr" path="res://Import/charlie.png" id="2_3wxoe"]
+[ext_resource type="Texture2D" uid="uid://bhpycjq1muqe" path="res://Import/Start.png" id="3_x7adk"]
+[ext_resource type="Texture2D" uid="uid://c6tsab21gwroo" path="res://Import/gusgus.png" id="4_si4ie"]
+[ext_resource type="Texture2D" uid="uid://ds3r2makhorcl" path="res://Import/dino.png" id="5_k4y3q"]
+
+[sub_resource type="Animation" id="Animation_kexgg"]
+resource_name = "START"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(625, 311), Vector2(625, 311), Vector2(625, 349), Vector2(625, 329), Vector2(625, 349)]
+}
+
+[sub_resource type="Animation" id="Animation_b5qn5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(603, 367)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jdo6t"]
+_data = {
+"RESET": SubResource("Animation_b5qn5"),
+"START": SubResource("Animation_kexgg")
+}
+
+[sub_resource type="Animation" id="Animation_g1yiw"]
+resource_name = "new_animation"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0494167, 0.0494167, 0.298341, 0.298341]
+}
+
+[sub_resource type="Animation" id="Animation_0wdtc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0494167]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uwjop"]
+_data = {
+"RESET": SubResource("Animation_0wdtc"),
+"new_animation": SubResource("Animation_g1yiw")
+}
+
+[node name="Start" type="Node2D"]
+
+[node name="CouvertureBook" type="Sprite2D" parent="."]
+position = Vector2(577.665, 361)
+scale = Vector2(2.92742, 2.92742)
+texture = ExtResource("1_250gt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(572, 327)
+
+[node name="Charlie" type="Sprite2D" parent="."]
+position = Vector2(616, 176)
+scale = Vector2(1.90517, 1.90517)
+texture = ExtResource("2_3wxoe")
+
+[node name="Start" type="Sprite2D" parent="."]
+position = Vector2(603, 367)
+rotation = -0.00109024
+scale = Vector2(1.21765, 1.21765)
+texture = ExtResource("3_x7adk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Start"]
+libraries = {
+"": SubResource("AnimationLibrary_jdo6t")
+}
+autoplay = "START"
+
+[node name="Gusgus" type="Sprite2D" parent="."]
+position = Vector2(264, 525)
+rotation = 0.351875
+scale = Vector2(0.142047, 0.142048)
+texture = ExtResource("4_si4ie")
+
+[node name="Dino" type="Sprite2D" parent="."]
+position = Vector2(977, 492)
+rotation = 0.0494167
+scale = Vector2(-0.130875, 0.163558)
+texture = ExtResource("5_k4y3q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Dino"]
+libraries = {
+"": SubResource("AnimationLibrary_uwjop")
+}
+autoplay = "new_animation"
