@@ -1,11 +1,14 @@
 extends Node2D
 
 @export var anim: AnimatedSprite2D
+@onready var audio_fourding = $fourding
+@onready var audio_fourcontinue = $fourcontinue
 var random_time
 
 func _ready():
 	# Définit la durée initiale du timer
 	randomize_timer()
+	audio_fourcontinue.play()
 	#onready var timer = get_node("Timer") # Assurez-vous de remplacer "path/to/your/timer_node" par le chemin correct vers votre nœud Timer
 	#text = str(timer.wait_time) # Met à jour le texte du label avec le temps restant du timer
 
@@ -29,6 +32,7 @@ func _process(_delta):
 	if Input.is_action_pressed("leftclick"):
 		if anim.frame == 2 :
 			print("win")
+			audio_fourding.play()
 		else:
 			print ("lose")
 	# Reste a faire : Détecter quand le joueur clique
