@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://r7tujup2txd3"]
+[gd_scene load_steps=25 format=3 uid="uid://r7tujup2txd3"]
 
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_30nu5"]
+[ext_resource type="Script" path="res://scripts/ForLevels/Manager/01Manager.gd" id="1_a46cv"]
 [ext_resource type="Texture2D" uid="uid://bbfdvdqlwnsbx" path="res://Import/tree.png" id="1_xvbaq"]
 [ext_resource type="Texture2D" uid="uid://dswwffc6yw7aq" path="res://Import/grass.png" id="3_58gdt"]
 [ext_resource type="Texture2D" uid="uid://xyk8tgyqlajp" path="res://Import/Echelleclaire.png" id="4_uuv5r"]
@@ -11,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ce7gjnnf31er" path="res://Import/marine.png" id="9_fqbwm"]
 [ext_resource type="Texture2D" uid="uid://bg55sin7ttnby" path="res://Import/Feuille.png" id="9_ytcnj"]
 [ext_resource type="Texture2D" uid="uid://cs4t5l0itx6q2" path="res://Import/appel.png" id="11_xclbs"]
+[ext_resource type="AudioStream" uid="uid://cmv2ekhhpchaj" path="res://sounds/HitConcrete10.wav" id="13_p1ylt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s1kmu"]
 animations = [{
@@ -152,6 +154,7 @@ _data = {
 
 [node name="Lvl01_Echelle" type="Node2D"]
 scale = Vector2(0.122999, 0.122999)
+script = ExtResource("1_a46cv")
 
 [node name="Page" type="Sprite2D" parent="."]
 position = Vector2(5786.65, 1806.93)
@@ -195,7 +198,6 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
 position = Vector2(-4.46802, 120.666)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_pvcsj")
 
 [node name="Appel" type="Sprite2D" parent="."]
@@ -231,3 +233,6 @@ libraries = {
 "": SubResource("AnimationLibrary_8ka2w")
 }
 autoplay = "Leaf2"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_p1ylt")

@@ -1,6 +1,6 @@
-extends Area2D
+extends Sprite2D
+@onready var animation_player = $AnimationPlayer
 
-@onready var lvl_01_Manager = $".."
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,9 +12,8 @@ func _process(delta):
 	pass
 
 
+func start():
+	animation_player.play()
 
-
-func _on_area_entered(area):
-	#label.text = "win";
-	print("ok dans area fin lv");
-	lvl_01_Manager.isFinish = true;#pour envoyer dans 01manager
+func stop():
+	animation_player.stop()

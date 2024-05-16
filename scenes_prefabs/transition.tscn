@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://o77j6cwl7spe"]
+[gd_scene load_steps=17 format=3 uid="uid://o77j6cwl7spe"]
 
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_h605g"]
 [ext_resource type="Script" path="res://scripts/transitionManager.gd" id="1_y6wcf"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://djdwsb2hchpwd" path="res://Import/heart 2.png" id="4_isr0j"]
 [ext_resource type="Texture2D" uid="uid://c4avtm2btvpo7" path="res://Import/heart 3.png" id="5_ql7xj"]
 [ext_resource type="Texture2D" uid="uid://74sd76iiejwn" path="res://Import/heart.png" id="6_4tchq"]
+[ext_resource type="FontFile" uid="uid://dx7lx5uteafob" path="res://Chantal Bold.ttf" id="8_1stw4"]
 
 [sub_resource type="Animation" id="Animation_cdqc5"]
 length = 0.001
@@ -132,37 +133,39 @@ position = Vector2(379, 193)
 scale = Vector2(2.07022, 2.07022)
 texture = ExtResource("2_owcg3")
 
-[node name="Heart1" type="Sprite2D" parent="."]
+[node name="Lifes" type="Node2D" parent="."]
+
+[node name="Heart1" type="Sprite2D" parent="Lifes"]
 position = Vector2(350, 466)
 rotation = 0.350811
 scale = Vector2(1.50732, 1.50732)
 texture = ExtResource("3_g5q62")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Heart1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lifes/Heart1"]
 libraries = {
 "": SubResource("AnimationLibrary_lvccw")
 }
 autoplay = "heart bouncing"
 speed_scale = 0.53
 
-[node name="Heart2" type="Sprite2D" parent="."]
+[node name="Heart2" type="Sprite2D" parent="Lifes"]
 position = Vector2(578, 477)
 scale = Vector2(1.50732, 1.50732)
 texture = ExtResource("4_isr0j")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Heart2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lifes/Heart2"]
 libraries = {
 "": SubResource("AnimationLibrary_lvccw")
 }
 autoplay = "heart bouncing"
 speed_scale = 0.53
 
-[node name="Heart3" type="Sprite2D" parent="."]
+[node name="Heart3" type="Sprite2D" parent="Lifes"]
 position = Vector2(819, 486)
 scale = Vector2(1.50732, 1.50732)
 texture = ExtResource("5_ql7xj")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Heart3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lifes/Heart3"]
 libraries = {
 "": SubResource("AnimationLibrary_lvccw")
 }
@@ -185,8 +188,38 @@ speed_scale = 0.55
 position = Vector2(573, 328)
 scale = Vector2(1.04, 1)
 
-[node name="Label" type="Label" parent="."]
+[node name="numStage" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 672.0
-offset_top = 118.0
-offset_right = 933.0
-offset_bottom = 268.0
+offset_top = 68.0
+offset_right = 901.0
+offset_bottom = 315.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.529412, 0.486275, 0.721569, 1)
+theme_override_fonts/font = ExtResource("8_1stw4")
+theme_override_font_sizes/font_size = 200
+text = "12
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="nameLevel" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 209.0
+offset_top = 223.0
+offset_right = 926.0
+offset_bottom = 470.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.529412, 0.486275, 0.721569, 1)
+theme_override_fonts/font = ExtResource("8_1stw4")
+theme_override_font_sizes/font_size = 100
+text = "ttttttttt
+"
+horizontal_alignment = 1
+vertical_alignment = 1

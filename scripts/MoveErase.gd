@@ -10,7 +10,5 @@ func _process(delta):
 	pass
 
 
-
-
 func _on_mouse_entered():
 	print("DANS GOMME")
