@@ -5,6 +5,10 @@ extends Area2D
 @export var rangeRadius: float = 30
 @export var moveSpeed: float = 100.0
 @export var moveRange: Rect2 = Rect2(Vector2(-200, -200), Vector2(400, 400))
+@onready var audio_stream_player = $"../fly"
+@onready var audio_tapette = $"../tapette"
+@onready var audio_splash = $"../Splashmouche"
+
 
 # Déclaration des variables pour stocker les références aux sprites
 var disabled_sprite = null
@@ -12,9 +16,10 @@ var enabled_sprites = []  # Utilisation d'une liste pour stocker plusieurs sprit
 var targetPosition: Vector2
 var  dead : bool = false
 
+
 func _ready():
 	# Récupérer les références aux sprites
-	
+	audio_stream_player.play()
 	set_process(true)
 	generateNewTarget()
 
@@ -37,7 +42,8 @@ func _input(event):
 			$AileDroite.visible = false
 			$AileGauche.visible = false
 			$Tete.visible = false
-			
+			audio_splash.play()
+			audio_stream_player.stop()
 			print("Sprite désactivé.")
 			# Activer les nouveaux sprites
 			$Mouchepaf.visible = true
@@ -50,6 +56,7 @@ func _input(event):
 			$AileGauche.visible = true
 			$Tete.visible = true
 			$Mouchepaf.visible = false
+			audio_tapette.play()
 
 func _process(delta):
 	if (!dead):
