@@ -78,7 +78,7 @@ func _process(_delta):
 			#son gg
 		elif (GlobalManager.timerIsStop && !isStop): # = timer fini donc stop
 			isStop = true
-			#loose.emit()
+			loose.emit()
 			print("-- fini perdu timer -- ")
 	
 
