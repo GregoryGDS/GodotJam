@@ -156,7 +156,6 @@ _data = {
 [node name="Lvl01_Echelle" type="Node2D"]
 scale = Vector2(0.123, 0.123)
 script = ExtResource("1_a46cv")
-timer = 4.0
 
 [node name="Page" type="Sprite2D" parent="."]
 position = Vector2(5786.65, 1806.93)

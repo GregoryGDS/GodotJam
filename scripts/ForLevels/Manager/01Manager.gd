@@ -6,7 +6,7 @@ extends Node2D
 var isFinish:bool # arriver ligne
 var isStop:bool
 
-@export var timer:float
+#@export var timer:float
 
 signal win
 signal loose
@@ -20,10 +20,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-	if Input.is_action_just_pressed("testTimer"):
-		timer -= 1
-	
+		
 	if isFinish && !isStop:
 		isStop = true;
 		win.emit()
@@ -32,8 +29,7 @@ func _process(delta):
 	elif GlobalManager.timerIsStop && !isStop: # = timer fini donc stop
 		isStop = true
 		loose.emit()
-		#son echec
-	
+		#son echec	
 
 
 func getIsFinish():
