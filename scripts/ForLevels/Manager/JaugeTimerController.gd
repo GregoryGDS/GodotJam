@@ -67,3 +67,6 @@ func _on_texture_progress_bar_value_changed(value):
 	#var t = (totalTime / timer.time_left)
 	#eraser.position.y = init_PosY + (maxPosYGomme - init_PosY) * t
 	pass # Replace with function body.
+
+func start():
+	timer.start()

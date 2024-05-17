@@ -20,6 +20,9 @@ cheminDos = "res://scenes_prefabs/Levels/"
 
 [node name="Transition" parent="." instance=ExtResource("3_e5yox")]
 
+[node name="JaugeTimer" parent="Transition" index="8"]
+initTimer = 5.0
+
 [node name="TextureRectMask" type="TextureRect" parent="."]
 clip_children = 1
 offset_right = 1152.0
@@ -70,3 +73,5 @@ stream = ExtResource("7_cc5em")
 stream = ExtResource("6_lyloc")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="Transition"]

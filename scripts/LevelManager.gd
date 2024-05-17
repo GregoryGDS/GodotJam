@@ -26,6 +26,7 @@ var cheminLV:String
 
 signal clearLineErase
 #@export var nbLifeCurrent:int = 3;
+@onready var jauge_timer = $Transition/JaugeTimer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,11 +46,13 @@ func _ready():
 	#transition.setNameLevel(nameLvl)
 	
 	#ANIM_LINE_ERASE.get_script().stop()
+	#jauge_timer.initTimer = timerScreen.wait_time;
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if screen:
 		startTimer()
+
 		
 
 func randScene():
@@ -150,6 +153,7 @@ func startTimer(): # timer transition
 	if not timerScreen.is_stopped():
 		return
 	timerScreen.start()
+	jauge_timer.start()
 	print("-----START SCREEN-----")
 	randScene()
 	setTransition()
