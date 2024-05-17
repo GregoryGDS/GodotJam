@@ -2,6 +2,8 @@ extends Node2D
 
 @export var anim: AnimatedSprite2D
 @onready var Burgir : Sprite2D = $Burger
+@onready var BurgirLoose = $BurgerLoose
+
 @onready var Fume : Sprite2D = $Fume
 @onready var Fume2 : Sprite2D = $Fume2
 @onready var Fume3 : Sprite2D = $Fume3
@@ -31,6 +33,7 @@ func _ready():
 	randomize_timer()
 	audio_fourcontinue.play()
 	Burgir.visible=false
+	BurgirLoose.visible =false
 	Fume.visible=false
 	Fume2.visible=false
 	Fume3.visible=false
@@ -62,6 +65,7 @@ func _process(_delta):
 		isStop = true
 		loose.emit()
 		jauge_timer.timer.stop()
+		BurgirLoose.visible = true
 		Fume.visible=true
 		Fume2.visible=true
 		Fume3.visible=true
@@ -88,6 +92,7 @@ func _process(_delta):
 				isFinish = true
 				audio_fourding.play()
 				Burgir.visible=true
+				BurgirLoose.visible=false
 				Fume.visible=false
 				Fume2.visible=false
 				Fume3.visible=false

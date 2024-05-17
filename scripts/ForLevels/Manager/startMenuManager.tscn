@@ -1,17 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://uidtw7cempf2"]
+[gd_scene load_steps=7 format=3 uid="uid://uidtw7cempf2"]
 
 [ext_resource type="Script" path="res://scripts/ForLevels/Manager/StartMenuManager.gd" id="1_0s2u6"]
-[ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="2_58q3m"]
+[ext_resource type="Texture2D" uid="uid://lv3bgfh2uxev" path="res://Import/couverture book.png" id="2_8mtta"]
 [ext_resource type="Texture2D" uid="uid://bhpycjq1muqe" path="res://Import/Start.png" id="2_tiyy4"]
+[ext_resource type="Texture2D" uid="uid://ei8r8t1u7ybr" path="res://Import/charlie.png" id="4_hfhid"]
+[ext_resource type="Texture2D" uid="uid://c6tsab21gwroo" path="res://Import/gusgus.png" id="5_k0bn2"]
+[ext_resource type="Texture2D" uid="uid://ds3r2makhorcl" path="res://Import/dino.png" id="6_v3mqv"]
 
 [node name="StartMenu" type="Node2D"]
+position = Vector2(-2, 0)
 script = ExtResource("1_0s2u6")
 
-[node name="Page" type="Sprite2D" parent="."]
-position = Vector2(561, 322)
-scale = Vector2(3.02419, 3.02419)
-texture = ExtResource("2_58q3m")
+[node name="CouvertureBook" type="Sprite2D" parent="."]
+position = Vector2(540.51, 342.5)
+scale = Vector2(3.24597, 3.24597)
+texture = ExtResource("2_8mtta")
 
 [node name="Start" type="Sprite2D" parent="."]
-position = Vector2(517, 416)
+position = Vector2(529, 472)
 texture = ExtResource("2_tiyy4")
+
+[node name="Charlie" type="Sprite2D" parent="."]
+position = Vector2(544, 154)
+scale = Vector2(1.61494, 1.61494)
+texture = ExtResource("4_hfhid")
+
+[node name="Gusgus" type="Sprite2D" parent="."]
+position = Vector2(928, 399)
+rotation = 0.501863
+scale = Vector2(0.165461, 0.165461)
+texture = ExtResource("5_k0bn2")
+
+[node name="Dino" type="Sprite2D" parent="."]
+position = Vector2(189, 461)
+rotation = -0.17353
+scale = Vector2(0.168937, 0.168937)
+texture = ExtResource("6_v3mqv")

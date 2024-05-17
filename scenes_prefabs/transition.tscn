@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://o77j6cwl7spe"]
+[gd_scene load_steps=20 format=3 uid="uid://o77j6cwl7spe"]
 
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_h605g"]
 [ext_resource type="Script" path="res://scripts/transitionManager.gd" id="1_y6wcf"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://c4avtm2btvpo7" path="res://Import/heart 3.png" id="5_ql7xj"]
 [ext_resource type="Texture2D" uid="uid://dwcpe5jd3c23w" path="res://Import/heart.png" id="6_4tchq"]
 [ext_resource type="FontFile" uid="uid://dx7lx5uteafob" path="res://Chantal Bold.ttf" id="8_1stw4"]
+[ext_resource type="Texture2D" uid="uid://ba1xscqmmdpnd" path="res://Import/clic droit.png" id="9_d64bl"]
+[ext_resource type="Texture2D" uid="uid://cpr1ghjh5gry2" path="res://Import/clic gauche.png" id="10_g3jvm"]
+[ext_resource type="Texture2D" uid="uid://0fhwm2j6idp8" path="res://Import/sablier.png" id="11_mvkmu"]
 
 [sub_resource type="Animation" id="Animation_cdqc5"]
 length = 0.001
@@ -129,14 +132,33 @@ scale = Vector2(2.89516, 2.89516)
 texture = ExtResource("1_h605g")
 
 [node name="StageWord" type="Sprite2D" parent="."]
-position = Vector2(379, 193)
-scale = Vector2(2.07022, 2.07022)
+position = Vector2(423, 131)
+scale = Vector2(1.52949, 1.52949)
 texture = ExtResource("2_owcg3")
 
+[node name="numStage" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 617.0
+offset_top = 9.0
+offset_right = 846.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.529412, 0.486275, 0.721569, 1)
+theme_override_fonts/font = ExtResource("8_1stw4")
+theme_override_font_sizes/font_size = 150
+text = "12
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Lifes" type="Node2D" parent="."]
+position = Vector2(0, -61)
 
 [node name="Heart1" type="Sprite2D" parent="Lifes"]
-position = Vector2(361, 476)
+position = Vector2(349, 472)
 rotation = 0.350811
 scale = Vector2(1.50732, 1.50732)
 texture = ExtResource("3_g5q62")
@@ -161,7 +183,7 @@ autoplay = "heart bouncing"
 speed_scale = 0.53
 
 [node name="Heart3" type="Sprite2D" parent="Lifes"]
-position = Vector2(819, 486)
+position = Vector2(829, 481)
 scale = Vector2(1.50732, 1.50732)
 texture = ExtResource("5_ql7xj")
 
@@ -173,7 +195,7 @@ autoplay = "heart bouncing"
 speed_scale = 0.53
 
 [node name="Heart" type="Sprite2D" parent="."]
-position = Vector2(592, 480)
+position = Vector2(593, 413)
 scale = Vector2(1.85066, 1.85066)
 texture = ExtResource("6_4tchq")
 
@@ -188,38 +210,69 @@ speed_scale = 0.55
 position = Vector2(573, 328)
 scale = Vector2(1.04, 1)
 
-[node name="numStage" type="Label" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 672.0
-offset_top = 68.0
-offset_right = 901.0
-offset_bottom = 315.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.529412, 0.486275, 0.721569, 1)
-theme_override_fonts/font = ExtResource("8_1stw4")
-theme_override_font_sizes/font_size = 200
-text = "12
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="nameLevel" type="Label" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 209.0
-offset_top = 223.0
-offset_right = 926.0
-offset_bottom = 470.0
+offset_left = 199.0
+offset_top = 181.0
+offset_right = 948.0
+offset_bottom = 349.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.529412, 0.486275, 0.721569, 1)
 theme_override_fonts/font = ExtResource("8_1stw4")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 80
 text = "ttttttttt
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="InputListe" type="Node2D" parent="."]
+position = Vector2(581, 584)
+
+[node name="The Climb" type="Node2D" parent="InputListe"]
+visible = false
+position = Vector2(-7, -36)
+
+[node name="ClicDroit" type="Sprite2D" parent="InputListe/The Climb"]
+position = Vector2(122, 25.613)
+rotation = -0.24114
+scale = Vector2(0.0925076, 0.0925076)
+texture = ExtResource("9_d64bl")
+
+[node name="ClicGauche" type="Sprite2D" parent="InputListe/The Climb"]
+position = Vector2(-122, 23.613)
+rotation = 0.529394
+scale = Vector2(0.093, 0.093)
+texture = ExtResource("10_g3jvm")
+
+[node name="Smash It" type="Node2D" parent="InputListe"]
+visible = false
+
+[node name="ClicGauche" type="Sprite2D" parent="InputListe/Smash It"]
+rotation = -0.0442352
+scale = Vector2(0.093, 0.093)
+texture = ExtResource("10_g3jvm")
+
+[node name="Burgir" type="Node2D" parent="InputListe"]
+visible = false
+
+[node name="ClicGauche" type="Sprite2D" parent="InputListe/Burgir"]
+rotation = -0.0442352
+scale = Vector2(0.093, 0.093)
+texture = ExtResource("10_g3jvm")
+
+[node name="Black Friday" type="Node2D" parent="InputListe"]
+visible = false
+
+[node name="ClicGauche" type="Sprite2D" parent="InputListe/Black Friday"]
+position = Vector2(-122, 0)
+rotation = 0.110516
+scale = Vector2(0.093, 0.093)
+texture = ExtResource("10_g3jvm")
+
+[node name="Sablier" type="Sprite2D" parent="InputListe/Black Friday"]
+position = Vector2(141, -16)
+scale = Vector2(0.153194, 0.153194)
+texture = ExtResource("11_mvkmu")

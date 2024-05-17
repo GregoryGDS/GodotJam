@@ -10,6 +10,7 @@ func _ready():
 func _process(delta):
 	
 	if Input.is_action_just_pressed("space"):
+		print("OUIIOUIIOUIIOUIIOUIIOUIIOUIIOUIIOUIIOUIIOUIIOUIIOUIIOUIIOUIIOUIIOUIIOUIIOUIIOUIIOUIIOUII")
 		get_tree().change_scene_to_file("res://scenes_prefabs/MainManagerMask.tscn")
 		pass
 	

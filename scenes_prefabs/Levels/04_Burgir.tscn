@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://wueiqkuckerf"]
+[gd_scene load_steps=33 format=3 uid="uid://wueiqkuckerf"]
 
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_mmv0b"]
 [ext_resource type="Texture2D" uid="uid://cw5xvtbluj5td" path="res://Import/four1.png" id="2_rtif8"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://7nvsvk88bcrb" path="res://Import/burger.png" id="12_d60kh"]
 [ext_resource type="Texture2D" uid="uid://b72ys1l47j0m8" path="res://Import/fume2.png" id="13_h0bfb"]
 [ext_resource type="Texture2D" uid="uid://dx8asttvrgjfi" path="res://Import/fume3.png" id="14_1jqw6"]
+[ext_resource type="Texture2D" uid="uid://d12e6u8ukavmo" path="res://Import/burgerpue.png" id="16_1udpx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oncdd"]
 animations = [{
@@ -331,3 +332,8 @@ libraries = {
 "": SubResource("AnimationLibrary_86fx8")
 }
 autoplay = "burgir"
+
+[node name="BurgerLoose" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(570, 479)
+texture = ExtResource("16_1udpx")

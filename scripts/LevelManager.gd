@@ -65,6 +65,9 @@ func randScene():
 	new_scene.win.connect(onWin)
 	new_scene.loose.connect(onLoose)
 	
+	
+	
+	
 func ChargeScene():
 	print("-----Load stage-----")
 	#var random = tscn_files.pick_random()
@@ -137,6 +140,10 @@ func setTransition():
 	print("numStage : ", numStage)
 	transition.setNumStage(str(numStage))
 	transition.setNameLevel(nameLvl)
+	
+	transition.SetInput(nameLvl)
+	
+	
 
 
 func startTimer(): # timer transition
