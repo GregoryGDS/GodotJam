@@ -84,6 +84,7 @@ func _process(_delta):
 			isStop = true
 			loose.emit()
 			BurgirLoose.visible = true
+			audio_fourcontinue.stop()
 			print("-- fini perdu timer -- ")
 	
 
