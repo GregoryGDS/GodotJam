@@ -1,0 +1,101 @@
+[gd_scene load_steps=10 format=3 uid="uid://dtsecn1jo672m"]
+
+[ext_resource type="Script" path="res://scripts/ForLevels/Manager/JaugeTimerController.gd" id="1_en4v4"]
+[ext_resource type="Texture2D" uid="uid://e1r0kl7s7x44" path="res://Import/jaugeketchup.png" id="2_wfdfy"]
+[ext_resource type="Texture2D" uid="uid://bkcd446avshu6" path="res://Import/jaugerect.png" id="3_3wgqi"]
+[ext_resource type="Texture2D" uid="uid://ba7myu5p8xfen" path="res://Import/jaugetrans.png" id="4_tytqi"]
+[ext_resource type="Texture2D" uid="uid://dmu5xwe72lo05" path="res://Import/Fichier_38.png" id="5_nwk2w"]
+[ext_resource type="Texture2D" uid="uid://ck5cuwvyw2bba" path="res://Import/eraser.png" id="5_sljb8"]
+
+[sub_resource type="Animation" id="Animation_5insh"]
+resource_name = "GommeJauge"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.523599, 0.174533]
+}
+
+[sub_resource type="Animation" id="Animation_7ifa7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g5lx3"]
+_data = {
+"GommeJauge": SubResource("Animation_5insh"),
+"RESET": SubResource("Animation_7ifa7")
+}
+
+[node name="JaugeTimer" type="Node2D"]
+script = ExtResource("1_en4v4")
+initTimer = 4.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+clip_children = 1
+offset_left = 128.0
+offset_top = 528.0
+offset_right = 257.0
+offset_bottom = 934.0
+rotation = 3.14159
+
+[node name="Jaugeketchup" type="Sprite2D" parent="ColorRect"]
+position = Vector2(62.642, 200.155)
+scale = Vector2(0.151, 0.152459)
+texture = ExtResource("2_wfdfy")
+
+[node name="Jaugerect" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(64.642, 326.042)
+scale = Vector2(0.151, 0.151)
+texture = ExtResource("3_3wgqi")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 7.0
+offset_top = 92.0
+offset_right = 47.0
+offset_bottom = 242.5
+rotation = -0.0434321
+scale = Vector2(3, 3)
+max_value = 5.0
+step = 0.0
+value = 5.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("4_tytqi")
+texture_progress = ExtResource("5_nwk2w")
+
+[node name="Eraser" type="Sprite2D" parent="."]
+position = Vector2(111, 54)
+scale = Vector2(0.107201, 0.107201)
+texture = ExtResource("5_sljb8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Eraser"]
+libraries = {
+"": SubResource("AnimationLibrary_g5lx3")
+}
+autoplay = "GommeJauge"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="value_changed" from="TextureProgressBar" to="." method="_on_texture_progress_bar_value_changed"]

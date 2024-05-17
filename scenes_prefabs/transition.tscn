@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://o77j6cwl7spe"]
+[gd_scene load_steps=21 format=3 uid="uid://o77j6cwl7spe"]
 
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_h605g"]
 [ext_resource type="Script" path="res://scripts/transitionManager.gd" id="1_y6wcf"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ba1xscqmmdpnd" path="res://Import/clic droit.png" id="9_d64bl"]
 [ext_resource type="Texture2D" uid="uid://cpr1ghjh5gry2" path="res://Import/clic gauche.png" id="10_g3jvm"]
 [ext_resource type="Texture2D" uid="uid://dtm3ryqtptxkb" path="res://Import/fleche.png" id="11_7tbwp"]
+[ext_resource type="PackedScene" uid="uid://dtsecn1jo672m" path="res://scenes_prefabs/LD/jauge_timerTransition.tscn" id="12_rvh0o"]
 
 [sub_resource type="Animation" id="Animation_cdqc5"]
 length = 0.001
@@ -127,8 +128,8 @@ position = Vector2(0, 1)
 script = ExtResource("1_y6wcf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(533.056, 363)
-scale = Vector2(3.09673, 2.89516)
+position = Vector2(541.5, 355)
+scale = Vector2(3.13959, 2.95968)
 texture = ExtResource("1_h605g")
 
 [node name="StageWord" type="Sprite2D" parent="."]
@@ -293,3 +294,6 @@ position = Vector2(93, -52)
 rotation = 5.54951
 scale = Vector2(0.148, 0.148)
 texture = ExtResource("11_7tbwp")
+
+[node name="JaugeTimer" parent="." instance=ExtResource("12_rvh0o")]
+position = Vector2(-6, 16)
