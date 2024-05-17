@@ -265,6 +265,7 @@ scale = Vector2(0.093, 0.093)
 texture = ExtResource("10_g3jvm")
 
 [node name="Black Friday" type="Node2D" parent="InputListe"]
+visible = false
 
 [node name="ClicGauche" type="Sprite2D" parent="InputListe/Black Friday"]
 position = Vector2(-0.501984, -0.719604)

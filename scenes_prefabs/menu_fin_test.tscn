@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ds3r2makhorcl" path="res://Import/dino.png" id="3_tybh3"]
 [ext_resource type="Texture2D" uid="uid://cjq06d64xb7vh" path="res://Import/sun.png" id="4_msf81"]
 [ext_resource type="Texture2D" uid="uid://dhdckv66goxfv" path="res://Import/word gae over.png" id="5_610nd"]
-[ext_resource type="FontFile" uid="uid://dx7lx5uteafob" path="res://Chantal Bold.ttf" id="7_jes3c"]
+[ext_resource type="FontFile" uid="uid://dx7lx5uteafob" path="res://Chantal Bold.ttf" id="7_i0h4m"]
 
 [sub_resource type="Animation" id="Animation_qdhne"]
 length = 0.001
@@ -128,22 +128,21 @@ scale = Vector2(2.65132, 2.65132)
 texture = ExtResource("5_610nd")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 338.0
-offset_top = 490.0
-offset_right = 645.0
-offset_bottom = 613.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_jes3c")
-theme_override_font_sizes/font_size = 60
-text = "SCORE :
-"
+offset_left = 426.0
+offset_top = 493.0
+offset_right = 487.0
+offset_bottom = 516.0
+theme_override_colors/font_color = Color(0.529412, 0.486275, 0.721569, 1)
+theme_override_fonts/font = ExtResource("7_i0h4m")
+theme_override_font_sizes/font_size = 40
+text = "Score : "
 
-[node name="ScoreTexte" type="Label" parent="."]
-offset_left = 570.0
-offset_top = 494.0
-offset_right = 877.0
-offset_bottom = 617.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_jes3c")
-theme_override_font_sizes/font_size = 60
-text = "1"
+[node name="ScoreText" type="Label" parent="."]
+offset_left = 575.0
+offset_top = 493.0
+offset_right = 725.0
+offset_bottom = 543.0
+theme_override_colors/font_color = Color(0.529412, 0.486275, 0.721569, 1)
+theme_override_fonts/font = ExtResource("7_i0h4m")
+theme_override_font_sizes/font_size = 40
+text = "99"

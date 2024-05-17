@@ -1,5 +1,6 @@
 extends Node2D
-@onready var score_texte = $ScoreTexte
+
+@onready var score_text = $ScoreText
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,4 +16,4 @@ func _process(delta):
 
 
 func setScoreText(score):
-	score_texte.text = str(score)
+	score_text.text = str(score)
