@@ -26,7 +26,6 @@ texture = SubResource("ViewportTexture_k7n81")
 [node name="child suppr" type="Node2D" parent="TextureRectMask"]
 
 [node name="TransitionLV1" parent="TextureRectMask" instance=ExtResource("3_e5yox")]
-visible = false
 position = Vector2(0, 2)
 
 [node name="CanvasLayer- génération du mask" type="CanvasLayer" parent="."]

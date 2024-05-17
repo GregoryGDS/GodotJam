@@ -6,6 +6,7 @@ var numLvl
 var nameLvl
 var numStage = 0
 var screen: bool = false
+var gameOver:bool = false
 
 @export var cheminDos:String;
 @onready var texture_rect_mask = $TextureRectMask
@@ -15,7 +16,7 @@ var screen: bool = false
 
 @onready var scene___trail_eraser = $"CanvasLayer- génération du mask/SubViewportContainer/SubViewport - texture substrat dynamique/scene - TrailEraser"
 @onready var anim_line_erase = $animLineErase
-
+@onready var firstTransition = $TextureRectMask/TransitionLV1
 
 signal clearLineErase
 #@export var nbLifeCurrent:int = 3;
@@ -29,7 +30,7 @@ func _ready():
 	for file in lvArray:
 		if file.ends_with(".tscn"):
 			tscn_files.append(file)
-		
+
 	randomScene()
 	setTransition()
 	
@@ -40,7 +41,6 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-
 	if screen:
 		startTimer()
 		#print(timerScreen.time_left)
@@ -48,8 +48,6 @@ func _process(_delta):
 func randomScene():
 	var random = tscn_files.pick_random()
 	var cheminLV = cheminDos + str(random)
-	
-
 	
 	#var scene = load cheminLV
 	#clear parent child
@@ -60,6 +58,7 @@ func randomScene():
 	#print(cheminLV)
 	#print(tscn_files)
 
+
 	var splitArray = random.split("_")
 	numLvl = splitArray[0]
 	nameLvl = splitArray[1].split(".")[0]
@@ -67,16 +66,27 @@ func randomScene():
 	
 	#suppression des enfants
 	for child in texture_rect_mask.get_children():
-		child.queue_free()
+
+		if child.get_name() == "TransitionLV1":
+			print("-----FIRST Transition-----")
+
+		if child.get_name() != "TransitionLV1":
+			print("-----NOT Transition-----")
+			child.queue_free()
+			pass
 		
+	print(texture_rect_mask.get_children())
 	#charge la scene
 	var new_scene:Node2D = load(cheminLV).instantiate()
-	print("-----Laod stage-----")
+	print("-----Load stage-----")
 	new_scene.win.connect(onWin)
 	new_scene.loose.connect(onLoose)
 	#pattern observer
 	
+	#comment le mettre devant
+	
 	if new_scene:
+		texture_rect_mask.add_child(firstTransition)
 		texture_rect_mask.add_child(new_scene)
 		#print("etat level : ", new_scene.get_script())
 		# set bool pour animation gomme
@@ -95,11 +105,16 @@ func onWin():
 func onLoose():
 	print("LOOSE LEVELS MANAGER")
 	transition.setNbLifeRemind() # -1
+	print("pv : ",transition.nbLifeCurrent)
 	if transition.nbLifeCurrent <= 0:
 		print("-----GAME OVER-----")
+		gameOver = true
+		transition.visible = false;
+	else:
+		screen = true
 	scene___trail_eraser.StartAnim()
 	anim_line_erase.start()
-	screen = true
+	
 	pass
 
 func setTransition():
@@ -108,7 +123,7 @@ func setTransition():
 	transition.setNameLevel(nameLvl)
 
 
-func startTimer():
+func startTimer(): # timer transition
 	if not timerScreen.is_stopped():
 		return
 	timerScreen.start()
@@ -118,5 +133,6 @@ func _on_timer_timeout():
 	scene___trail_eraser.line_2d.viderLine()
 	screen = false
 	print("-----END SCREEN-----")
-	randomScene()
-	setTransition()
+	if !gameOver:
+		randomScene()
+		setTransition()

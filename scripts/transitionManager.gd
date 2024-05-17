@@ -4,8 +4,6 @@ extends Node2D
 @onready var num_stage = $numStage
 @onready var name_level = $nameLevel
 
-
-
 var arrayHeart: Array
 @export var nbLifeCurrent:int = 3;
 
