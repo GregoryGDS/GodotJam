@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://378w2oa5d4qm"]
+[gd_scene load_steps=26 format=3 uid="uid://378w2oa5d4qm"]
 
 [ext_resource type="Script" path="res://scripts/ForLevels/Manager/03Manager.gd" id="1_6yk7b"]
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_a0hgf"]
@@ -66,12 +66,6 @@ _data = {
 "ticket": SubResource("Animation_7x7ti")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1d26y"]
-size = Vector2(234.257, 146.45)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohx2i"]
-size = Vector2(20, 129.681)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_djrpi"]
 animations = [{
 "frames": [{
@@ -88,6 +82,50 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upf7x"]
 size = Vector2(139, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1d26y"]
+size = Vector2(234.257, 146.45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohx2i"]
+size = Vector2(20, 129.681)
+
+[sub_resource type="Animation" id="Animation_gr3ca"]
+resource_name = "swipe"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 0.0919282), Vector2(1, 0.0919282), Vector2(1, 0.558296), Vector2(1, 0.558296), Vector2(1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pckii"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lnmh8"]
+_data = {
+"RESET": SubResource("Animation_pckii"),
+"swipe": SubResource("Animation_gr3ca")
+}
 
 [node name="03_Black Friday" type="Node2D"]
 script = ExtResource("1_6yk7b")
@@ -116,25 +154,6 @@ libraries = {
 "": SubResource("AnimationLibrary_2a0s2")
 }
 autoplay = "ticket"
-
-[node name="CarteBleu" type="Sprite2D" parent="."]
-position = Vector2(665, 477)
-rotation = 1.55557
-texture = ExtResource("4_hmnaj")
-script = ExtResource("5_pf8ch")
-
-[node name="Area2D" type="Area2D" parent="CarteBleu"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CarteBleu/Area2D"]
-position = Vector2(5.98404, 1.09137)
-shape = SubResource("RectangleShape2D_1d26y")
-
-[node name="piste_magnetique" type="Area2D" parent="CarteBleu"]
-input_pickable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CarteBleu/piste_magnetique"]
-position = Vector2(8.45575, -5.92297)
-shape = SubResource("RectangleShape2D_ohx2i")
 
 [node name="TpeAnim" type="AnimatedSprite2D" parent="."]
 position = Vector2(328.5, 285)
@@ -177,6 +196,26 @@ theme_override_fonts/font = ExtResource("1_ieolf")
 theme_override_font_sizes/font_size = 23
 metadata/_edit_use_anchors_ = true
 
+[node name="CarteBleu" type="Sprite2D" parent="."]
+position = Vector2(665, 477)
+rotation = 1.55557
+scale = Vector2(1, 1)
+texture = ExtResource("4_hmnaj")
+script = ExtResource("5_pf8ch")
+
+[node name="Area2D" type="Area2D" parent="CarteBleu"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CarteBleu/Area2D"]
+position = Vector2(5.98404, 1.09137)
+shape = SubResource("RectangleShape2D_1d26y")
+
+[node name="piste_magnetique" type="Area2D" parent="CarteBleu"]
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CarteBleu/piste_magnetique"]
+position = Vector2(8.45575, -5.92297)
+shape = SubResource("RectangleShape2D_ohx2i")
+
 [node name="CardUncorrect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_rasd4")
 volume_db = -2.0
@@ -185,12 +224,18 @@ volume_db = -2.0
 stream = ExtResource("12_306da")
 
 [node name="TpeFleche" type="Sprite2D" parent="."]
-position = Vector2(458, 394)
+position = Vector2(457, 384)
 texture = ExtResource("14_e7duv")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TpeFleche"]
+libraries = {
+"": SubResource("AnimationLibrary_lnmh8")
+}
+autoplay = "swipe"
+
+[connection signal="area_entered" from="Tpe/tpe_haut" to="Tpe" method="_on_tpe_haut_area_entered"]
+[connection signal="area_entered" from="Tpe/tpe_bas" to="Tpe" method="_on_tpe_bas_area_entered"]
 [connection signal="mouse_entered" from="CarteBleu/Area2D" to="CarteBleu" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="CarteBleu/Area2D" to="CarteBleu" method="_on_area_2d_mouse_exited"]
 [connection signal="mouse_entered" from="CarteBleu/piste_magnetique" to="CarteBleu" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="CarteBleu/piste_magnetique" to="CarteBleu" method="_on_area_2d_mouse_exited"]
-[connection signal="area_entered" from="Tpe/tpe_haut" to="Tpe" method="_on_tpe_haut_area_entered"]
-[connection signal="area_entered" from="Tpe/tpe_bas" to="Tpe" method="_on_tpe_bas_area_entered"]
