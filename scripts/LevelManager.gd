@@ -91,13 +91,12 @@ func ChargeScene():
 	for child in texture_rect_mask.get_children():
 		child.queue_free()
 
-		
 	print(texture_rect_mask.get_children())
 	#charge la scene
 	#new_scene = load(cheminLV).instantiate()
 	
 	#pattern observer
-		
+
 	# faire plus tard
 	if new_scene:
 		#texture_rect_mask.add_child(firstTransition)
@@ -130,6 +129,7 @@ func onLoose():
 		transition.visible = false;
 	else:
 		screen = true
+		audio_loose.play()
 	scene___trail_eraser.StartAnim()
 	anim_line_erase.start()
 	

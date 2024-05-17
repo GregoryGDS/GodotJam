@@ -85,16 +85,16 @@ scale = Vector2(7.57623, 7.57623)
 shape = SubResource("CircleShape2D_w7go7")
 
 [node name="AileGauche" type="Sprite2D" parent="."]
-position = Vector2(442.331, -350.817)
+position = Vector2(17.9573, -300.72)
 scale = Vector2(0.978684, 0.978684)
 texture = ExtResource("2_fke2p")
 
 [node name="Tete" type="Sprite2D" parent="."]
-position = Vector2(-0.00146484, 0)
+position = Vector2(-424.375, 50.097)
 texture = ExtResource("3_w2dn2")
 
 [node name="AileDroite" type="Sprite2D" parent="."]
-position = Vector2(594.861, 152.53)
+position = Vector2(170.487, 202.627)
 scale = Vector2(0.800381, 0.800381)
 texture = ExtResource("4_mapqr")
 

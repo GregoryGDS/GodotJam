@@ -62,6 +62,7 @@ func _process(_delta):
 	if (isLoose && !isStop):
 		#jauge_timer.timer.stop()# à modif
 		print("-- ISLOOSE -- ")
+		audio_fourcontinue.stop()
 		isStop = true
 		loose.emit()
 		jauge_timer.timer.stop()
@@ -82,6 +83,7 @@ func _process(_delta):
 		elif (GlobalManager.timerIsStop && !isStop): # = timer fini donc stop
 			isStop = true
 			loose.emit()
+			BurgirLoose.visible = true
 			print("-- fini perdu timer -- ")
 	
 

@@ -10,7 +10,7 @@
 [ext_resource type="FontFile" uid="uid://dx7lx5uteafob" path="res://Chantal Bold.ttf" id="8_1stw4"]
 [ext_resource type="Texture2D" uid="uid://ba1xscqmmdpnd" path="res://Import/clic droit.png" id="9_d64bl"]
 [ext_resource type="Texture2D" uid="uid://cpr1ghjh5gry2" path="res://Import/clic gauche.png" id="10_g3jvm"]
-[ext_resource type="Texture2D" uid="uid://0fhwm2j6idp8" path="res://Import/sablier.png" id="11_mvkmu"]
+[ext_resource type="Texture2D" uid="uid://dtm3ryqtptxkb" path="res://Import/fleche.png" id="11_7tbwp"]
 
 [sub_resource type="Animation" id="Animation_cdqc5"]
 length = 0.001
@@ -127,8 +127,8 @@ position = Vector2(0, 1)
 script = ExtResource("1_y6wcf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(572.766, 363)
-scale = Vector2(2.89516, 2.89516)
+position = Vector2(533.056, 363)
+scale = Vector2(3.09673, 2.89516)
 texture = ExtResource("1_h605g")
 
 [node name="StageWord" type="Sprite2D" parent="."]
@@ -264,15 +264,32 @@ scale = Vector2(0.093, 0.093)
 texture = ExtResource("10_g3jvm")
 
 [node name="Black Friday" type="Node2D" parent="InputListe"]
-visible = false
 
 [node name="ClicGauche" type="Sprite2D" parent="InputListe/Black Friday"]
-position = Vector2(-122, 0)
+position = Vector2(-0.501984, -0.719604)
 rotation = 0.110516
 scale = Vector2(0.093, 0.093)
 texture = ExtResource("10_g3jvm")
 
-[node name="Sablier" type="Sprite2D" parent="InputListe/Black Friday"]
-position = Vector2(141, -16)
-scale = Vector2(0.153194, 0.153194)
-texture = ExtResource("11_mvkmu")
+[node name="Fleche2" type="Sprite2D" parent="InputListe/Black Friday"]
+position = Vector2(-90, -52)
+rotation = 3.79211
+scale = Vector2(0.148, 0.148)
+texture = ExtResource("11_7tbwp")
+
+[node name="Fleche" type="Sprite2D" parent="InputListe/Black Friday"]
+position = Vector2(99.498, 14.2804)
+scale = Vector2(0.148148, 0.148148)
+texture = ExtResource("11_7tbwp")
+
+[node name="Fleche3" type="Sprite2D" parent="InputListe/Black Friday"]
+position = Vector2(-112, 14.2804)
+rotation = 3.14159
+scale = Vector2(0.148148, 0.148148)
+texture = ExtResource("11_7tbwp")
+
+[node name="Fleche4" type="Sprite2D" parent="InputListe/Black Friday"]
+position = Vector2(93, -52)
+rotation = 5.54951
+scale = Vector2(0.148, 0.148)
+texture = ExtResource("11_7tbwp")

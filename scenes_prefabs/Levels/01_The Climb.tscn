@@ -240,5 +240,6 @@ autoplay = "Leaf2"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_34aeb")
+volume_db = -2.0
 
 [connection signal="area_entered" from="Area2D - fin LV" to="." method="_on_area_2d__fin_lv_area_entered"]

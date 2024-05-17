@@ -93,8 +93,8 @@ size = Vector2(139, 74)
 script = ExtResource("1_6yk7b")
 
 [node name="Page" type="Sprite2D" parent="."]
-position = Vector2(571.524, 357.147)
-scale = Vector2(2.93667, 2.93667)
+position = Vector2(534.024, 357.147)
+scale = Vector2(3.12703, 2.93667)
 texture = ExtResource("1_a0hgf")
 
 [node name="JaugeTimer" parent="." instance=ExtResource("12_vnvds")]
@@ -168,13 +168,13 @@ shape = SubResource("RectangleShape2D_upf7x")
 position = Vector2(575, 323)
 
 [node name="Label" type="Label" parent="Camera2D"]
-offset_left = -290.0
-offset_top = -71.0
-offset_right = -56.0
-offset_bottom = 2.0
+offset_left = -301.0
+offset_top = -61.0
+offset_right = -67.0
+offset_bottom = 12.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_ieolf")
-theme_override_font_sizes/font_size = 17
+theme_override_font_sizes/font_size = 23
 metadata/_edit_use_anchors_ = true
 
 [node name="CardUncorrect" type="AudioStreamPlayer" parent="."]

@@ -61,12 +61,12 @@ wait_time = 5.0
 one_shot = true
 
 [node name="AudioGameOver" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_lyloc")
+stream = ExtResource("8_075mc")
 
 [node name="AudioVictory" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_cc5em")
 
 [node name="AudioLoose" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_075mc")
+stream = ExtResource("6_lyloc")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
