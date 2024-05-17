@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ba1xscqmmdpnd" path="res://Import/clic droit.png" id="9_d64bl"]
 [ext_resource type="Texture2D" uid="uid://cpr1ghjh5gry2" path="res://Import/clic gauche.png" id="10_g3jvm"]
 [ext_resource type="Texture2D" uid="uid://dtm3ryqtptxkb" path="res://Import/fleche.png" id="11_7tbwp"]
-[ext_resource type="PackedScene" uid="uid://dtsecn1jo672m" path="res://scenes_prefabs/LD/jauge_timerTransition.tscn" id="12_rvh0o"]
+[ext_resource type="PackedScene" uid="uid://b8or7mi4tl5c8" path="res://scenes_prefabs/LD/jauge_timerTransition.tscn" id="12_rvh0o"]
 
 [sub_resource type="Animation" id="Animation_cdqc5"]
 length = 0.001

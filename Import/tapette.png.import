@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dg0gd7xdrh7bq"
-path="res://.godot/imported/tapette.png-c5cd0935bf9c4b044dcc9a95c8d5ff5f.ctex"
+path="res://.godot/imported/tapette.png-88b6d8f9d240ed369c84d7f99cb2de0d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes_prefabs/Levels/tapette.png"
-dest_files=["res://.godot/imported/tapette.png-c5cd0935bf9c4b044dcc9a95c8d5ff5f.ctex"]
+source_file="res://Import/tapette.png"
+dest_files=["res://.godot/imported/tapette.png-88b6d8f9d240ed369c84d7f99cb2de0d.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://wueiqkuckerf"]
+[gd_scene load_steps=33 format=3 uid="uid://beg3gaj4u0yli"]
 
 [ext_resource type="Script" path="res://scripts/TimerFour.gd" id="1_enpwo"]
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="2_tn8re"]

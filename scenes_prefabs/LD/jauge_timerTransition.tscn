@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtsecn1jo672m"]
+[gd_scene load_steps=10 format=3 uid="uid://b8or7mi4tl5c8"]
 
 [ext_resource type="Script" path="res://scripts/ForLevels/Manager/JaugeTimerController.gd" id="1_en4v4"]
 [ext_resource type="Texture2D" uid="uid://e1r0kl7s7x44" path="res://Import/jaugeketchup.png" id="2_wfdfy"]
 [ext_resource type="Texture2D" uid="uid://bkcd446avshu6" path="res://Import/jaugerect.png" id="3_3wgqi"]
-[ext_resource type="Texture2D" uid="uid://ba7myu5p8xfen" path="res://Import/jaugetrans.png" id="4_tytqi"]
-[ext_resource type="Texture2D" uid="uid://dmu5xwe72lo05" path="res://Import/Fichier_38.png" id="5_nwk2w"]
+[ext_resource type="Texture2D" path="res://Import/jaugetrans.png" id="4_tytqi"]
+[ext_resource type="Texture2D" path="res://Import/Fichier_38.png" id="5_nwk2w"]
 [ext_resource type="Texture2D" uid="uid://ck5cuwvyw2bba" path="res://Import/eraser.png" id="5_sljb8"]
 
 [sub_resource type="Animation" id="Animation_5insh"]

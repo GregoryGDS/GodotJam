@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://qpfy2vhps6tv" path="res://Import/tete.png" id="10_53bpt"]
 [ext_resource type="Texture2D" uid="uid://bdw5olfm2h7vo" path="res://Import/aile droite.png" id="11_pkvad"]
 [ext_resource type="Texture2D" uid="uid://ctfckjub46kst" path="res://Import/mouchepaf.png" id="12_p6kft"]
-[ext_resource type="Texture2D" uid="uid://dg0gd7xdrh7bq" path="res://scenes_prefabs/Levels/tapette.png" id="13_2l8ia"]
+[ext_resource type="Texture2D" uid="uid://dg0gd7xdrh7bq" path="res://Import/tapette.png" id="13_2l8ia"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w7go7"]
 radius = 125.0
