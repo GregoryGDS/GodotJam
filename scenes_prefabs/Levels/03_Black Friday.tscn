@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://378w2oa5d4qm"]
+[gd_scene load_steps=22 format=3 uid="uid://378w2oa5d4qm"]
 
 [ext_resource type="Script" path="res://scripts/ForLevels/Manager/03Manager.gd" id="1_6yk7b"]
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_a0hgf"]
@@ -9,10 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://be2jkb1jyy16x" path="res://Import/tpe wrong.png" id="5_8q8o3"]
 [ext_resource type="Script" path="res://scripts/DragandDrop.gd" id="5_pf8ch"]
 [ext_resource type="Texture2D" uid="uid://bo770xuhrbqpm" path="res://Import/tpe good.png" id="6_ea20k"]
-[ext_resource type="Texture2D" uid="uid://cn53srfu5qslh" path="res://Import/tpe.png" id="7_mu36x"]
+[ext_resource type="Texture2D" uid="uid://c5ya2u5yafbae" path="res://Import/tpe.png" id="7_mu36x"]
 [ext_resource type="Script" path="res://Tpe.gd" id="10_ho0ux"]
 [ext_resource type="AudioStream" uid="uid://rqy6bxkmb7bj" path="res://sounds/CardCorrect.wav" id="12_306da"]
 [ext_resource type="PackedScene" uid="uid://7fu6exinieh0" path="res://scenes_prefabs/LD/jauge_timer.tscn" id="12_vnvds"]
+[ext_resource type="Texture2D" uid="uid://dpagt5in87oo4" path="res://Import/tpe_fleche.png" id="14_e7duv"]
 
 [sub_resource type="Animation" id="Animation_2uv2d"]
 length = 2.0
@@ -165,20 +166,23 @@ shape = SubResource("RectangleShape2D_upf7x")
 position = Vector2(575, 323)
 
 [node name="Label" type="Label" parent="Camera2D"]
-offset_left = -273.0
-offset_top = -58.0
-offset_right = -39.0
-offset_bottom = 15.0
+offset_left = -290.0
+offset_top = -71.0
+offset_right = -56.0
+offset_bottom = 2.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_ieolf")
 theme_override_font_sizes/font_size = 17
-text = "test"
 metadata/_edit_use_anchors_ = true
 
 [node name="CardUncorrect" type="AudioStreamPlayer" parent="."]
 
 [node name="CardCorrect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_306da")
+
+[node name="TpeFleche" type="Sprite2D" parent="."]
+position = Vector2(458, 394)
+texture = ExtResource("14_e7duv")
 
 [connection signal="mouse_entered" from="CarteBleu/Area2D" to="CarteBleu" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="CarteBleu/Area2D" to="CarteBleu" method="_on_area_2d_mouse_exited"]

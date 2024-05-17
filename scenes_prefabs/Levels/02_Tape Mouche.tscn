@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c8amldnt56g11"]
+[gd_scene load_steps=18 format=3 uid="uid://c8amldnt56g11"]
 
 [ext_resource type="Script" path="res://scripts/ForLevels/Manager/02Manager.gd" id="1_abmvw"]
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_de2ut"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bj7ash8xg6vx" path="res://sounds/FlySplash_Sound.wav" id="7_ay2k6"]
 [ext_resource type="AudioStream" uid="uid://byq043js3xij5" path="res://sounds/tapetteamouche_Sound.wav" id="8_0x7gn"]
 [ext_resource type="AudioStream" uid="uid://cyikv2f3gstfu" path="res://sounds/Fly_Sound.wav" id="9_wetm1"]
+[ext_resource type="Texture2D" uid="uid://dg0gd7xdrh7bq" path="res://scenes_prefabs/Levels/tapette.png" id="13_ogmsj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w7go7"]
 radius = 125.0
@@ -98,6 +99,7 @@ initTimer = 3.0
 
 [node name="Mouche" parent="." instance=ExtResource("4_ltxep")]
 scale = Vector2(0.4, 0.4)
+moveRange = Rect2(0, 1000, 1000, 0)
 
 [node name="Mouche2" parent="." instance=ExtResource("4_ltxep")]
 position = Vector2(3349.62, 2967.5)
@@ -243,6 +245,13 @@ libraries = {
 "": SubResource("AnimationLibrary_fiwm0")
 }
 autoplay = "mouche"
+
+[node name="Tapette Parent" type="Node2D" parent="."]
+position = Vector2(-2951.24, 1861.8)
+
+[node name="Tapette" type="Sprite2D" parent="Tapette Parent"]
+position = Vector2(-1.18195e-05, 390.247)
+texture = ExtResource("13_ogmsj")
 
 [connection signal="mouse_entered" from="Area2D3" to="Area2D3" method="_on_mouse_entered"]
 [connection signal="mouse_entered" from="Area2D4" to="Area2D4" method="_on_mouse_entered"]

@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://uidtw7cempf2"]
+[gd_scene load_steps=4 format=3 uid="uid://uidtw7cempf2"]
 
 [ext_resource type="Script" path="res://scripts/ForLevels/Manager/StartMenuManager.gd" id="1_0s2u6"]
+[ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="2_58q3m"]
 [ext_resource type="Texture2D" uid="uid://bhpycjq1muqe" path="res://Import/Start.png" id="2_tiyy4"]
 
 [node name="StartMenu" type="Node2D"]
 script = ExtResource("1_0s2u6")
 
+[node name="Page" type="Sprite2D" parent="."]
+position = Vector2(561, 322)
+scale = Vector2(3.02419, 3.02419)
+texture = ExtResource("2_58q3m")
+
 [node name="Start" type="Sprite2D" parent="."]
-position = Vector2(441, 218)
+position = Vector2(517, 416)
 texture = ExtResource("2_tiyy4")

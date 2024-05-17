@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="cours_Godot"
-run/main_scene="res://sample.tscn"
+run/main_scene="res://scripts/ForLevels/Manager/startMenuManager.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 

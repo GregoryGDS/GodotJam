@@ -43,7 +43,7 @@ func _ready():
 func _process(_delta):
 	if screen:
 		startTimer()
-		#print(timerScreen.time_left)
+		
 
 func randomScene():
 	var random = tscn_files.pick_random()
@@ -85,6 +85,8 @@ func randomScene():
 	
 	#comment le mettre devant
 	
+	
+	# faire plus tard
 	if new_scene:
 		texture_rect_mask.add_child(firstTransition)
 		texture_rect_mask.add_child(new_scene)
@@ -97,6 +99,7 @@ func randomScene():
 
 func onWin():
 	print("WIN LEVELS MANAGER")
+	#timer
 	scene___trail_eraser.StartAnim() # clear ligne et anim gomme 
 	anim_line_erase.start() # anim gomme
 	screen = true
@@ -104,6 +107,7 @@ func onWin():
 	
 func onLoose():
 	print("LOOSE LEVELS MANAGER")
+	#timer
 	transition.setNbLifeRemind() # -1
 	print("pv : ",transition.nbLifeCurrent)
 	if transition.nbLifeCurrent <= 0:
