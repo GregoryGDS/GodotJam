@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ce7gjnnf31er" path="res://Import/marine.png" id="9_fqbwm"]
 [ext_resource type="Texture2D" uid="uid://bg55sin7ttnby" path="res://Import/Feuille.png" id="9_ytcnj"]
 [ext_resource type="Texture2D" uid="uid://cs4t5l0itx6q2" path="res://Import/appel.png" id="11_xclbs"]
-[ext_resource type="AudioStream" uid="uid://cmv2ekhhpchaj" path="res://sounds/HitConcrete10.wav" id="13_p1ylt"]
+[ext_resource type="AudioStream" uid="uid://cb3g02gsb6dj" path="res://sounds/echelle2.wav" id="14_34aeb"]
 [ext_resource type="PackedScene" uid="uid://7fu6exinieh0" path="res://scenes_prefabs/LD/jauge_timer.tscn" id="14_gfypi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s1kmu"]
@@ -239,6 +239,6 @@ libraries = {
 autoplay = "Leaf2"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_p1ylt")
+stream = ExtResource("14_34aeb")
 
 [connection signal="area_entered" from="Area2D - fin LV" to="." method="_on_area_2d__fin_lv_area_entered"]

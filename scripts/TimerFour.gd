@@ -15,7 +15,6 @@ var random_time
 @export var max_time:float
 
 
-
 var isFinish:bool
 var isStop:bool
 var isLoose:bool

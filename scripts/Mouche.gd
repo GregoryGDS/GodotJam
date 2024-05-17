@@ -7,6 +7,11 @@ extends Area2D
 @onready var lvl_02_mouche = $".."
 @onready var tapette_parent = $"../Tapette Parent"
 
+@onready var splashmouche = $"../Splashmouche"
+@onready var tapette = $"../tapette"
+@onready var fly = $"../fly"
+
+
 # Déclaration des variables pour stocker les références aux sprites
 var disabled_sprite = null
 var enabled_sprites = []  # Utilisation d'une liste pour stocker plusieurs sprites
@@ -17,6 +22,7 @@ func _ready():
 	# Récupérer les références aux sprites
 	set_process(true)
 	generateNewTarget()
+	fly.play()
 
 func _on_mouse_entered():
 	print("mouse enter")
@@ -32,6 +38,9 @@ func _input(event):
 		var distance = object_global_position.distance_to(event.position)
 		if !lvl_02_mouche.isStop:
 			if distance <= rangeRadius:
+				splashmouche.play()
+				fly.stop()
+				
 				lvl_02_mouche.isFinish = true;
 				print("Le clic est à l'intérieur du rayon.")
 				$AileDroite.visible = false
@@ -44,7 +53,9 @@ func _input(event):
 				print("Sprites activés.")
 				dead = true
 				print(dead)
+				
 			else:
+				tapette.play()
 				print("Le clic est à l'extérieur du rayon.")
 				$AileDroite.visible = true
 				$AileGauche.visible = true

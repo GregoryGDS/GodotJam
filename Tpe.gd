@@ -8,7 +8,6 @@ extends Sprite2D
 @export var piste: Area2D
 var enter_time: float
 
-
 var TimeMax_accepted : float =100
 var TimeMin_accepted: float = 50
 

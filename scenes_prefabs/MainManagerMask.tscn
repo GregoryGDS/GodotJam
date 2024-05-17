@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkkb3fnvxur4u"]
+[gd_scene load_steps=10 format=3 uid="uid://dkkb3fnvxur4u"]
 
 [ext_resource type="Script" path="res://scripts/LevelManager.gd" id="1_f12ry"]
 [ext_resource type="PackedScene" uid="uid://db6crh86yecq1" path="res://scenes_prefabs/GenerateEraser.tscn" id="2_2n85x"]
 [ext_resource type="PackedScene" uid="uid://noawj26u85mq" path="res://scenes_prefabs/menu_fin_test.tscn" id="2_4lylk"]
 [ext_resource type="PackedScene" uid="uid://o77j6cwl7spe" path="res://scenes_prefabs/transition.tscn" id="3_e5yox"]
+[ext_resource type="AudioStream" uid="uid://cg5x2kpk2s84x" path="res://sounds/GameOver.wav" id="6_lyloc"]
+[ext_resource type="AudioStream" uid="uid://dn8ukit1ehahs" path="res://sounds/Victory.wav" id="7_cc5em"]
 [ext_resource type="PackedScene" uid="uid://b1uv0obf6ba27" path="res://scenes_prefabs/LD/anim_line_erase.tscn" id="7_ywbm8"]
+[ext_resource type="AudioStream" uid="uid://dmqk5w5x74325" path="res://sounds/womp_womp.wav" id="8_075mc"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_k7n81"]
 viewport_path = NodePath("CanvasLayer- génération du mask/SubViewportContainer/SubViewport - texture substrat dynamique")
@@ -56,5 +59,14 @@ render_target_update_mode = 4
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="AudioGameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_lyloc")
+
+[node name="AudioVictory" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_cc5em")
+
+[node name="AudioLoose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_075mc")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

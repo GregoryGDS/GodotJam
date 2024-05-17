@@ -7,6 +7,8 @@ var nameLvl
 var numStage = 0
 var screen: bool = false
 var gameOver:bool = false
+var new_scene:Node2D
+var cheminLV:String
 
 @export var cheminDos:String;
 @onready var texture_rect_mask = $TextureRectMask
@@ -18,11 +20,16 @@ var gameOver:bool = false
 @onready var anim_line_erase = $animLineErase
 @onready var firstTransition = $TextureRectMask/TransitionLV1
 
+@onready var audio_game_over = $AudioGameOver
+@onready var audio_victory = $AudioVictory
+@onready var audio_loose = $AudioLoose
+
 signal clearLineErase
 #@export var nbLifeCurrent:int = 3;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	screen = true
 	lvArray = DirAccess.get_files_at(cheminDos);
 	# reset trail gomme => script à la racine
 	tscn_files = []
@@ -30,9 +37,9 @@ func _ready():
 	for file in lvArray:
 		if file.ends_with(".tscn"):
 			tscn_files.append(file)
-
-	randomScene()
-	setTransition()
+	#randScene()
+	#ChargeScene()
+	#setTransition()
 	
 	#transition.setNumStage(str(numStage))
 	#transition.setNameLevel(nameLvl)
@@ -45,50 +52,52 @@ func _process(_delta):
 		startTimer()
 		
 
-func randomScene():
+func randScene():
+	print("-----select rand scene-----") 
 	var random = tscn_files.pick_random()
-	var cheminLV = cheminDos + str(random)
-	
-	#var scene = load cheminLV
-	#clear parent child
-	#%texture_rect_mask.add_child(scene.Instantiate())
-	
-	#print(cheminDos)
-	#print(random)
-	#print(cheminLV)
-	#print(tscn_files)
-
+	cheminLV = cheminDos + str(random)
 
 	var splitArray = random.split("_")
 	numLvl = splitArray[0]
 	nameLvl = splitArray[1].split(".")[0]
 	
+	new_scene = load(cheminLV).instantiate()
+	new_scene.win.connect(onWin)
+	new_scene.loose.connect(onLoose)
+	
+func ChargeScene():
+	print("-----Load stage-----")
+	#var random = tscn_files.pick_random()
+	#var cheminLV = cheminDos + str(random)
+	#
+	##var scene = load cheminLV
+	##clear parent child
+	##%texture_rect_mask.add_child(scene.Instantiate())
+	#
+	##print(cheminDos)
+	##print(random)
+	##print(cheminLV)
+	##print(tscn_files)
+#
+#
+	#var splitArray = random.split("_")
+	#numLvl = splitArray[0]
+	#nameLvl = splitArray[1].split(".")[0]
 	
 	#suppression des enfants
 	for child in texture_rect_mask.get_children():
+		child.queue_free()
 
-		if child.get_name() == "TransitionLV1":
-			print("-----FIRST Transition-----")
-
-		if child.get_name() != "TransitionLV1":
-			print("-----NOT Transition-----")
-			child.queue_free()
-			pass
 		
 	print(texture_rect_mask.get_children())
 	#charge la scene
-	var new_scene:Node2D = load(cheminLV).instantiate()
-	print("-----Load stage-----")
-	new_scene.win.connect(onWin)
-	new_scene.loose.connect(onLoose)
+	#new_scene = load(cheminLV).instantiate()
+	
 	#pattern observer
-	
-	#comment le mettre devant
-	
-	
+		
 	# faire plus tard
 	if new_scene:
-		texture_rect_mask.add_child(firstTransition)
+		#texture_rect_mask.add_child(firstTransition)
 		texture_rect_mask.add_child(new_scene)
 		#print("etat level : ", new_scene.get_script())
 		# set bool pour animation gomme
@@ -100,6 +109,7 @@ func randomScene():
 func onWin():
 	print("WIN LEVELS MANAGER")
 	#timer
+	audio_victory.play()
 	scene___trail_eraser.StartAnim() # clear ligne et anim gomme 
 	anim_line_erase.start() # anim gomme
 	screen = true
@@ -112,6 +122,7 @@ func onLoose():
 	print("pv : ",transition.nbLifeCurrent)
 	if transition.nbLifeCurrent <= 0:
 		print("-----GAME OVER-----")
+		audio_game_over.play()
 		gameOver = true
 		transition.visible = false;
 	else:
@@ -123,6 +134,7 @@ func onLoose():
 
 func setTransition():
 	numStage += 1
+	print("numStage : ", numStage)
 	transition.setNumStage(str(numStage))
 	transition.setNameLevel(nameLvl)
 
@@ -132,11 +144,15 @@ func startTimer(): # timer transition
 		return
 	timerScreen.start()
 	print("-----START SCREEN-----")
+	randScene()
+	setTransition()
 
 func _on_timer_timeout():
 	scene___trail_eraser.line_2d.viderLine()
+	#ChargeScene()
 	screen = false
+	
 	print("-----END SCREEN-----")
 	if !gameOver:
-		randomScene()
-		setTransition()
+		ChargeScene()
+

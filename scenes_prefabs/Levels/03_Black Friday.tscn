@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://378w2oa5d4qm"]
+[gd_scene load_steps=23 format=3 uid="uid://378w2oa5d4qm"]
 
 [ext_resource type="Script" path="res://scripts/ForLevels/Manager/03Manager.gd" id="1_6yk7b"]
 [ext_resource type="Texture2D" uid="uid://q3b7iadco58n" path="res://Import/page.png" id="1_a0hgf"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://Tpe.gd" id="10_ho0ux"]
 [ext_resource type="AudioStream" uid="uid://rqy6bxkmb7bj" path="res://sounds/CardCorrect.wav" id="12_306da"]
 [ext_resource type="PackedScene" uid="uid://7fu6exinieh0" path="res://scenes_prefabs/LD/jauge_timer.tscn" id="12_vnvds"]
+[ext_resource type="AudioStream" uid="uid://djehg6wp7fw21" path="res://sounds/CardUncorrect.wav" id="13_rasd4"]
 [ext_resource type="Texture2D" uid="uid://dpagt5in87oo4" path="res://Import/tpe_fleche.png" id="14_e7duv"]
 
 [sub_resource type="Animation" id="Animation_2uv2d"]
@@ -99,6 +100,7 @@ texture = ExtResource("1_a0hgf")
 [node name="JaugeTimer" parent="." instance=ExtResource("12_vnvds")]
 position = Vector2(55, 32)
 scale = Vector2(1, 1)
+initTimer = 5.0
 
 [node name="CaisseSeule" type="Sprite2D" parent="."]
 position = Vector2(937, 216)
@@ -176,6 +178,8 @@ theme_override_font_sizes/font_size = 17
 metadata/_edit_use_anchors_ = true
 
 [node name="CardUncorrect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_rasd4")
+volume_db = -2.0
 
 [node name="CardCorrect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_306da")
