@@ -9,6 +9,7 @@ var screen: bool = false
 var gameOver:bool = false
 var new_scene:Node2D
 var cheminLV:String
+var Score : float
 
 @export var cheminDos:String;
 @onready var texture_rect_mask = $TextureRectMask
@@ -19,6 +20,8 @@ var cheminLV:String
 @onready var scene___trail_eraser = $"CanvasLayer- génération du mask/SubViewportContainer/SubViewport - texture substrat dynamique/scene - TrailEraser"
 @onready var anim_line_erase = $animLineErase
 @onready var firstTransition = $TextureRectMask/TransitionLV1
+@onready var label_2 = $ScoreTexte
+
 
 @onready var audio_game_over = $AudioGameOver
 @onready var audio_victory = $AudioVictory
@@ -73,9 +76,10 @@ func randScene():
 	
 func ChargeScene():
 	print("-----Load stage-----")
+	
 	#var random = tscn_files.pick_random()
 	#var cheminLV = cheminDos + str(random)
-	#
+	
 	##var scene = load cheminLV
 	##clear parent child
 	##%texture_rect_mask.add_child(scene.Instantiate())
@@ -118,6 +122,8 @@ func onWin():
 	scene___trail_eraser.StartAnim() # clear ligne et anim gomme 
 	anim_line_erase.start() # anim gomme
 	screen = true
+	Score+=1
+	print("Score : ",Score)
 	pass
 	
 func onLoose():
@@ -128,8 +134,11 @@ func onLoose():
 	if transition.nbLifeCurrent <= 0:
 		print("-----GAME OVER-----")
 		audio_game_over.play()
+		menu_fin.setScoreText(Score)
 		gameOver = true
 		transition.visible = false;
+
+		
 	else:
 		screen = true
 		audio_loose.play()

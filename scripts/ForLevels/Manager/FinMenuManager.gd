@@ -1,4 +1,5 @@
 extends Node2D
+@onready var score_texte = $ScoreTexte
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,3 +12,7 @@ func _process(delta):
 		get_tree().change_scene_to_file("res://scripts/ForLevels/Manager/startMenuManager.tscn")
 		
 	pass
+
+
+func setScoreText(score):
+	score_texte.text = str(score)
